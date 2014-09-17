@@ -23,14 +23,59 @@
 <p>
     from: <input type="date" name="" id="from" data-ng-model="dtFrom"/>
     to: <input type="date" name="" id="to" data-ng-model="dtTo"/>
-    <input type="radio" name="type" value="Complete" checked>Complete
-    <input type="radio" name="type" value="Ongoing">Ongoing
+    <input type="radio" name="type" value="Complete" checked data-ng-model="type">Complete
+    <input type="radio" name="type" value="Ongoing" data-ng-model="type">Ongoing
     <br>
-    Campaign Type: <select name="" id="ddlCtype"><option value="type1">type 1</option><option value="type2">type 2</option></select>
-    Program: <select name="" id="ddlProgram"><option value="type1">type 1</option><option value="type2">type 2</option></select>
-    Media type: <select name="" id="ddlMtype"><option value="type1">type 1</option><option value="type2">type 2</option></select>
-    Region: <select name="" id="ddlRegion"><option value="type1">type 1</option><option value="type2">type 2</option></select>
-    Product: <select name="" id="ddlProduct"><option value="type1">type 1</option><option value="type2">type 2</option></select>
+    Campaign Type: 
+    <select name="" id="ddlCtype" data-ng-model="campaignType">
+        <option value="">ALL</option>
+        <option value="General">General</option>
+        <option value="Diversity">Diversity</option>
+    </select>
+    Program: 
+    <select name="" id="ddlProgram" data-ng-model="program">
+        <option value="">ALL</option>
+        <option value="Movers">Movers</option>
+        <option value="UVMM">UVMM</option>
+        <option value="BUND">BUND</option>
+        <option value="DSL">DSL</option>
+        <option value="UVSL">UVSL</option>
+        <option value="Diversity">Diversity</option>
+        <option value="CING">CING</option>
+        <option value="DISH">DISH</option>
+        <option value="Winback">Winback</option>
+        <option value="ACC">ACC</option>
+        <option value="UVAQ">UVAQ</option>
+    </select>
+    Media type: 
+    <select name="" id="ddlMtype" data-ng-model="mediaType">
+        <option value="">ALL</option>
+        <option value="Mass">Mass</option>
+        <option value="Direct">Direct</option>
+    </select>
+    Region: 
+    <select name="" id="ddlRegion" data-ng-model="region">
+        <option value="">ALL</option>
+        <option value="NATL">NATL</option>
+        <option value="MW">MW</option>
+        <option value="SW">SW</option>
+        <option value="SE">SE</option>
+        <option value="SNET">SNET</option>
+        <option value="W">W</option>
+    </select>
+    Product: 
+    <select name="" id="ddlProduct" data-ng-model="product">
+        <option value="">ALL</option>
+        <option value="OTH">OTH</option>
+        <option value="UVMM">UVMM</option>
+        <option value="BUND">BUND</option>
+        <option value="DSL">DSL</option>
+        <option value="UVSL">UVSL</option>
+        <option value="DISH">DISH</option>
+        <option value="LD">LD</option>
+        <option value="CING">CING</option>
+        <option value="UVAQ">UVAQ</option>
+    </select>
     <button ng-click="query()">query</button>
 </p>
 <div id="gauge1">
