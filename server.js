@@ -39,5 +39,7 @@ app.get('*', api.runsql);
 
 app.post('/upload', api.upload);
 
+app.post('/reset', api.reset);
+
 http.createServer(app).listen(process.env.PORT, '172.17.113.157');
 

@@ -67,6 +67,18 @@ sqlApi.prototype.runsql = function(req, res) {
     }
 };
 
+sqlApi.prototype.reset = function(req, res){
+    sequelize.query('delete from tbl_campaign;')
+        .success(function (data) {
+            res.writeHead(200);
+            res.end();
+        })
+        .error(function(err){
+            res.writeHead(500);
+            res.end();
+        });
+};
+
 sqlApi.prototype.upload = function(req, res){
     var data = _.pick(req.body, 'type')
         , uploadPath = path.join(process.cwd(), 'uploads')
@@ -142,11 +154,6 @@ sqlApi.prototype.upload = function(req, res){
                });*/
        }
     });
-
-
-
-
-
 };
 
 module.exports = sqlApi;

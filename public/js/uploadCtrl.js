@@ -10,6 +10,13 @@ angular
             }, 3000);
         };
 */
+$scope.resetDB = false;
+        $scope.reset = function(){
+            $http.post('reset')
+            .then(function(data){
+                $scope.resetDB = true;
+            })
+        };
         $scope.onFileSelect = function($files) {
             ngProgress.start();
             //$files: an array of files selected, each file has name, size, and type.
