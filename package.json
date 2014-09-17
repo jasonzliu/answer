@@ -1,0 +1,14 @@
+{
+  "name": "answer",
+  "description": "The answer for questions about data stastics",
+  "author": "Zhen Liu",
+  "version": "0.0.1",
+    "dependencies": {
+        "express": "3.3.5",
+        "lodash": "2.4.1",
+        "q": "~1.0.0",
+        "sequelize": "1.7.x",
+        "mysql": "~2.0.1",
+        "request": "~2.34.0"
+    }
+}

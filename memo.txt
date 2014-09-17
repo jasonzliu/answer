@@ -1,0 +1,81 @@
+drop table tbl_campaign;
+CREATE TABLE `tbl_campaign` (
+  `id` int NOT NULL,
+  `campaign_type` varchar(10) DEFAULT NULL,
+  `media_code` varchar(10) DEFAULT NULL,
+  `media_type` varchar(10) DEFAULT NULL,
+  `product_code` varchar(10) DEFAULT NULL,
+  `program` varchar(10) DEFAULT NULL,
+  `region_code` varchar(10) DEFAULT NULL,
+  `report_year` int DEFAULT NULL,
+  `report_week` int DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date_traditional` date DEFAULT NULL,
+  `ttd_budget` decimal(11,2) DEFAULT NULL,
+  `ctd_dir_sales_ts_totalstrat` decimal(11,2) DEFAULT NULL,
+  `ctd_mc_sales_totalstrat` int DEFAULT NULL,
+  `ctd_quantity` int DEFAULT NULL,
+  `ctd_dir_calls` decimal(11,2) DEFAULT NULL,
+  `ctd_mc_calls` decimal(11,2) DEFAULT NULL,
+  `ctd_dir_clicks` int DEFAULT NULL,
+  `ctd_mc_clicks` decimal(11,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+truncate table tbl_campaign;
+
+load data local infile 'c:/dallastat/902/aa.csv' into table tbl_campaign fields terminated by ','
+  enclosed by '"'
+  lines terminated by '\n'
+	IGNORE 1 LINES
+    (id,campaign_type,media_code,media_type,product_code,program,
+	region_code,report_year,report_week,start_date,end_date_traditional,
+	ttd_budget,ctd_dir_sales_ts_totalstrat,ctd_mc_sales_totalstrat,
+	ctd_quantity,ctd_dir_calls,ctd_mc_calls,ctd_dir_clicks,ctd_mc_clicks);
+
+#summary
+##pie chart (campaign distribution)
+###campaign_type
+select campaign_type,count(id)  as count from tbl_campaign group by campaign_type;
+###media_type
+select media_code,count(id)  as count  from tbl_campaign group by media_code;
+###product_type
+select product_code,count(id) as count from tbl_campaign group by product_code;
+###program_type
+select program,count(id) as count from tbl_campaign group by program;
+###region
+select region_code,count(id) as count from tbl_campaign group by region_code;
+
+##bar chart (overall roi by category)
+###campaign_type
+select campaign_type,format(sum(ttd_budget) ,0) as budget,format(sum(ctd_dir_sales_ts_totalstrat+ctd_mc_sales_totalstrat) ,0) as ttl_sales from tbl_campaign group by campaign_type;
+###media_type
+select media_code,format(sum(ttd_budget) ,0) as budget,format(sum(ctd_dir_sales_ts_totalstrat+ctd_mc_sales_totalstrat) ,0) as ttl_sales from tbl_campaign group by media_code;
+###product_type
+select product_code,format(sum(ttd_budget) ,0) as budget,format(sum(ctd_dir_sales_ts_totalstrat+ctd_mc_sales_totalstrat) ,0) as ttl_sales from tbl_campaign group by product_code;
+###program_type
+select program,format(sum(ttd_budget) ,0) as budget,format(sum(ctd_dir_sales_ts_totalstrat+ctd_mc_sales_totalstrat) ,0) as ttl_sales from tbl_campaign group by program;
+###region
+select region_code,format(sum(ttd_budget),0) as budget,format(sum(ctd_dir_sales_ts_totalstrat+ctd_mc_sales_totalstrat), 0) as ttl_sales from tbl_campaign group by region_code;
+
+##time_series_line_chart
+select report_year, report_week,format(sum(ttd_budget) ,0) as ttl_budget,format(sum(ctd_dir_sales_ts_totalstrat+ctd_mc_sales_totalstrat),0) as ttl_sales from tbl_campaign group by report_year, report_week order by report_year,report_week;
+
+#kpi
+
+##cost_per_sale
+select format (sum(ttd_budget)/sum(ctd_dir_sales_ts_totalstrat+ctd_mc_sales_totalstrat),0) from tbl_campaign where end_date_traditional between (start_date) and (end_date_traditional) and campaign_type="general" and program="movers" and media_type="mass" and region_code="w" and product_code="bund";
+
+##quantity_per_sale
+select format (sum(ctd_quantity)/sum(ctd_dir_sales_ts_totalstrat+ctd_mc_sales_totalstrat),0) from tbl_campaign where end_date_traditional between (start_date) and (end_date_traditional) and campaign_type="general" and program="movers" and media_type="mass" and region_code="w" and product_code="bund";
+
+##cost_per_call
+select format (sum(ttd_budget)/sum(ctd_dir_calls+ctd_mc_calls),0) from tbl_campaign where end_date_traditional between (start_date) and (end_date_traditional) and campaign_type="general" and program="movers" and media_type="mass" and region_code="w" and product_code="bund";
+
+##quantity_per_call
+select format (sum(ctd_quantity)/sum(ctd_dir_calls+ctd_mc_calls),0) from tbl_campaign where end_date_traditional between (start_date) and (end_date_traditional) and campaign_type="general" and program="movers" and media_type="mass" and region_code="w" and product_code="bund";
+
+##cost_per_click
+select format((ttd_budget)/sum(ctd_dir_clicks+ctd_mc_clicks),0) from tbl_campaign where end_date_traditional between (start_date) and (end_date_traditional) and campaign_type="general" and program="movers" and media_type="mass" and region_code="w" and product_code="bund";
+
+##quantity_per_click
+select format(sum(ctd_quantity)/sum(ctd_dir_clicks+ctd_mc_clicks),0) from tbl_campaign where end_date_traditional between (start_date) and (end_date_traditional) and campaign_type="general" and program="movers" and media_type="mass" and region_code="w" and product_code="bund";

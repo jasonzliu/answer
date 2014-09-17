@@ -1,0 +1,47 @@
+<style>
+
+    p
+    {
+        font: 14px arial;
+    }
+
+    div
+    {
+        font:  10px arial;
+        padding: 40px;
+    }
+
+    span
+    {
+        padding: 30px;
+    }
+
+</style>
+
+<h1>kpi</h1>
+<hr/>
+<p>
+    from: <input type="date" name="" id="from" data-ng-model="dtFrom"/>
+    to: <input type="date" name="" id="to" data-ng-model="dtTo"/>
+    <input type="radio" name="type" value="Complete" checked>Complete
+    <input type="radio" name="type" value="Ongoing">Ongoing
+    <br>
+    Campaign Type: <select name="" id="ddlCtype"><option value="type1">type 1</option><option value="type2">type 2</option></select>
+    Program: <select name="" id="ddlProgram"><option value="type1">type 1</option><option value="type2">type 2</option></select>
+    Media type: <select name="" id="ddlMtype"><option value="type1">type 1</option><option value="type2">type 2</option></select>
+    Region: <select name="" id="ddlRegion"><option value="type1">type 1</option><option value="type2">type 2</option></select>
+    Product: <select name="" id="ddlProduct"><option value="type1">type 1</option><option value="type2">type 2</option></select>
+    <button ng-click="query()">query</button>
+</p>
+<div id="gauge1">
+    <span id="cost_per_saleGaugeContainer"></span>
+    <span id="cost_per_callGaugeContainer" ></span>
+    <span id="cost_per_clickGaugeContainer"></span>
+</div>
+
+<div id="gauge2">
+    <span id="quantity_per_saleGaugeContainer"></span>
+    <span id="quantity_per_callGaugeContainer"></span>
+    <span id="quantity_per_clickGaugeContainer"></span>
+</div>
+

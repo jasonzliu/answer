@@ -1,0 +1,67 @@
+<h1>summary</h1>
+<hr/>
+<div ui-view></div>
+<style>
+
+    .bar1 {
+        fill: steelblue;
+    }
+
+    .bar1:hover {
+        fill: brown;
+    }
+
+    .bar2 {
+        fill: #b4a644;
+    }
+
+    .bar2:hover {
+        fill: #a52c6b;
+    }
+
+    .axis {
+        font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+
+    body {
+        font: 10px sans-serif;
+    }
+
+    .axis path,
+
+    .line1 {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
+
+    .line2 {
+        fill: none;
+        stroke:  #b4a644 !important;
+        stroke-width: 1.5px;
+    }
+</style>
+
+<select id="ddlBar" data-ng-model="barType" data-ng-change="onBar()">
+   <!-- <option value="campaign_type">campaign type</option>-->
+    <option value="media_type">media type</option>
+    <option value="product_type">product type</option>
+    <option value="program_type">program type</option>
+    <option value="region">region</option>
+</select>
+
+<div id="bar"></div>
+
+<div id="pie"></div>
+
+<div id="line"></div>
+
+        <button ng-click="save()">save</button>
