@@ -1,3 +1,4 @@
+id,campaign_type,media_code,media_type,product_code,program,region_code,report_year,report_week,start_date,end_date_traditional,ttd_budget,ctd_dir_sales_ts_totalstrat,ctd_mc_sales_totalstrat,ctd_quantity,ctd_dir_calls,ctd_mc_calls,ctd_dir_clicks,ctd_mc_clicks
 27697,General,MS,Mass,OTH,Movers,NATL,2008,31,2008-01-01,2008-12-22,0,1069,0,0,20621,0,0,0
 27698,General,MS,Mass,OTH,Movers,NATL,2008,31,2008-01-01,2008-12-22,0,0,0,0,0,0,55550,0
 27699,General,BI,Mass,UVMM,UVMM,MW,2008,31,2008-06-01,2008-07-28,10793.77,0,0,172111,30,0,0,0

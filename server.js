@@ -3,7 +3,6 @@ var express = require('express');
 var sqlApi = require('./server/sqlapi.js');
 var path = require('path');
 var multipart = require('connect-multiparty');
-var _ = require('lodash');
 
 console.log('Server running at http://'+ process.env.IP + ':'+process.env.PORT);
 
@@ -38,17 +37,7 @@ app.use(express.bodyParser());
 // register api routes
 app.get('*', api.runsql);
 
-app.post('/upload', function(req, res){
-    var data = _.pick(req.body, 'type')
-        , uploadPath = path.join(process.cwd(), 'uploads')
-        , file = req.files.file;
-
-    console.log(file.name); //original name (ie: sunset.png)
-    console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
-    console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
-    require('fs').unlink(file.path);
-    res.end();
-});
+app.post('/upload', api.upload);
 
 http.createServer(app).listen(process.env.PORT, '172.17.113.157');
 
