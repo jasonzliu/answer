@@ -11,6 +11,7 @@ angular
         };
 */
         $scope.onFileSelect = function($files) {
+            ngProgress.start();
             //$files: an array of files selected, each file has name, size, and type.
             for (var i = 0; i < $files.length; i++) {
                 var file = $files[i];
@@ -28,9 +29,12 @@ angular
                     //formDataAppender: function(formData, key, val){}
                 }).progress(function(evt) {
                     console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                    if (evt.loaded ==evt.total)
+                        ngProgress.complete();
                 }).success(function(data, status, headers, config) {
                     // file is uploaded successfully
                     console.log(data);
+                    $scope.uploaded = true;
                 });
                 //.error(...)
                 //.then(success, error, progress);

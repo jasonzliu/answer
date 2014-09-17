@@ -46,6 +46,7 @@ app.post('/upload', function(req, res){
     console.log(file.name); //original name (ie: sunset.png)
     console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
     console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
+    require('fs').unlink(file.path);
     res.end();
 });
 
