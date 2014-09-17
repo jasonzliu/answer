@@ -44,8 +44,8 @@ angular
             return gauge.config.min - overflow + (gauge.config.max - gauge.config.min + overflow*2) *  Math.random();
         }
 
-        $scope.dtTo = new Date();
-        $scope.dtFrom =new Date(new Date().setDate($scope.dtTo.getDate()-30));
+        $scope.dtTo = new Date(2008, 11, 31);
+        $scope.dtFrom =new Date(2008, 0, 1);
 
         $scope.query = function(){
             /*console.log($scope.campaignType);
