@@ -9,6 +9,7 @@
         "q": "~1.0.0",
         "sequelize": "1.7.x",
         "mysql": "~2.0.1",
-        "request": "~2.34.0"
+        "request": "~2.34.0",
+        "connect-multiparty": "*"
     }
 }
