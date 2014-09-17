@@ -2,7 +2,7 @@ var _=require('lodash');
 
 var sqlApi = function() {};
 var Sequelize = require('sequelize')
-    , sequelize = new Sequelize('mysql://jasonzliu@172.17.7.77:3306/c9', {
+    , sequelize = new Sequelize('mysql://jasonzliu@172.17.113.157:3306/c9', {
         dialect: "mysql", // or 'sqlite', 'postgres', 'mariadb'
         port: 3306 // or 5432 (for postgres)
     });
