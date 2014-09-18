@@ -4,25 +4,6 @@ var sqlApi = require('./server/sqlapi.js');
 var path = require('path');
 
 console.log('Server running at http://127.0.0.1:7777/');
-
-/*http.createServer(function (req, res) {
-    var arr = _.compact(req.url.split('/'));
-    var str = sql;
-    _.forEach(arr, function(item){
-        if (str)
-            str = str[item];
-    });
-    if (str && typeof(str) == 'string'){
-        sequelize.query(str)
-            .success(function (myTableRows) {
-                res.writeHead(200, {'Content-Type': 'text/plain'});
-                //console.log(myTableRows)
-                res.end(JSON.stringify(myTableRows));
-            });
-    }else{
-        res.end();
-    }
-}).listen(7777, '127.0.0.1');*/
 var api = new sqlApi();
 var app = express();
 
