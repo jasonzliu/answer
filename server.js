@@ -33,5 +33,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('*', api.runsql);
 
 //http.createServer(app).listen(7777, '127.0.0.1');
-http.createServer(app).listen(process.env.PORT, '172.17.113.157');
+http.createServer(app).listen(process.env.PORT, process.env.IP);
 
