@@ -2,9 +2,8 @@ var http = require('http');
 var express = require('express');
 var sqlApi = require('./server/sqlapi.js');
 var path = require('path');
-var multipart = require('connect-multiparty');
 
-console.log('Server running at http://'+ process.env.IP + ':'+process.env.PORT);
+console.log('Server running at http://127.0.0.1:7777/');
 
 /*http.createServer(function (req, res) {
     var arr = _.compact(req.url.split('/'));
@@ -27,19 +26,11 @@ console.log('Server running at http://'+ process.env.IP + ':'+process.env.PORT);
 var api = new sqlApi();
 var app = express();
 
-app.use(multipart({
-    uploadDir: 'upload'
-}));
 console.log("\n-------------the answer-------------\n");
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.bodyParser());
 // register api routes
 app.get('*', api.runsql);
 
-app.post('/upload', api.upload);
-
-app.post('/reset', api.reset);
-
-http.createServer(app).listen(process.env.PORT, '172.17.113.157');
+http.createServer(app).listen(7777, '127.0.0.1');
 

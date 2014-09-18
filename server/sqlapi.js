@@ -5,7 +5,7 @@ var q = require('q');
 
 var sqlApi = function() {};
 var Sequelize = require('sequelize')
-    , sequelize = new Sequelize('mysql://jasonzliu@172.17.113.157:3306/c9', {
+    , sequelize = new Sequelize('mysql://jason:demo2demo@127.0.0.1:3306/answer', {
         dialect: "mysql", // or 'sqlite', 'postgres', 'mariadb'
         port: 3306 // or 5432 (for postgres)
     });
