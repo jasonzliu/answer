@@ -2,7 +2,7 @@ angular
     .module('the-answer')
     .controller('expressCtrl', function ($scope, $http) {
         var margin = {top: 20, right: 20, bottom: 30, left: 40},
-            width = 500 - margin.left - margin.right,
+            width = 650 - margin.left - margin.right,
             height = 300 - margin.top - margin.bottom;
 
         var x0 = d3.scale.ordinal()
@@ -25,7 +25,7 @@ angular
             .orient("left")
             .tickFormat(d3.format(".2s"));
 
-        var svg = d3.select("#svg").append("svg")
+        var svg = d3.select("#svg1").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
@@ -34,8 +34,8 @@ angular
         var data = [
             {
                 "State": "DEC",
-                "Dec 2010 - Jan 2012": 320,
-                "Dec 2011 - Jan 2013": 330
+                "Dec 2010 - Jan 2012": 200,
+                "Dec 2011 - Jan 2013": 230
             },
             {
                 "State": "JAN",
@@ -138,7 +138,7 @@ angular
             .attr("y", 6)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("SALES");
+            .text("SALES ($ in million)");
 
         var state = svg.selectAll(".state")
             .data(data)
@@ -168,7 +168,7 @@ angular
             });
 
         var legend = svg.selectAll(".legend")
-            .data(ageNames.slice().reverse())
+            .data(ageNames.slice())
             .enter().append("g")
             .attr("class", "legend")
             .attr("transform", function (d, i) {
@@ -176,13 +176,13 @@ angular
             });
 
         legend.append("rect")
-            .attr("x", width - 228)
+            .attr("x", width - 278)
             .attr("width", 18)
             .attr("height", 18)
             .style("fill", color);
 
         legend.append("text")
-            .attr("x", width - 234)
+            .attr("x", width - 284)
             .attr("y", 9)
             .attr("dy", ".35em")
             .style("text-anchor", "end")

@@ -1,7 +1,60 @@
 <style>
 
-    body {
+    div {
         font: 10px sans-serif;
+    }
+
+    div.lg30 {
+        background-color: lightgrey;
+        padding: 30px;
+    }
+
+    div.tac {
+        text-align: center;
+    }
+
+    div.w880 {
+        width: 880px;
+    }
+
+    table.w100p {
+        width: 100%;
+    }
+
+    .bcblack {
+        background-color: black;
+    }
+
+    .bcwhite {
+        background-color: white;
+    }
+
+    .bcblue{
+        background-color: #80c7e6;
+    }
+    .cwhite {
+        color: white;
+    }
+    .cred {
+        color: red;
+    }
+    .cyellow {
+        color: yellow;
+    }
+    .cgreen {
+        color: green;
+    }
+
+    .w26p {
+        width: 26%;
+    }
+
+    .w37p {
+        width: 37%;
+    }
+
+    .w33p {
+        width: 33%;
     }
 
     .axis path,
@@ -15,119 +68,116 @@
         fill: steelblue;
     }
 
-    td, th {
-        border: 1px solid #ccc;
-        font-size: 16px;
+    td {
+        border: 1px solid black;
+        font-size: 14px;
         font-weight: bold
-
-        /* border-width border-style border-color */
     }
 </style>
-<div style="background-color: lightgrey" class="panel panel-default">
-    <div class="panel-heading">
+<div class="panel panel-default pull-left lg30">
+    <div class="panel-headin">
         <h1>Revenue Generation</h1>
     </div>
-    <div style="width:700px; text-align: center" class="panel-body">
+    <div  class="panel-body tac w880">
 
-        <table style="width: 100%; border: 1px; ">
+        <table class="w100p">
             <tr>
                 <td colspan="7"> All Customers</td>
             </tr>
-            <tr style="background-color: black; color: white">
-                <td style="width:26%"></td>
-                <td colspan="3" style="width: 37%">
-                    <table style="width: 100%">
+            <tr class="bcblack cwhite">
+                <td class="w26p"></td>
+                <td colspan="3" class="w37p">
+                    <table class="w100p">
                         <tr>
                             <td colspan="3">Sales</td>
                         </tr>
                         <tr>
-                            <td>Recent Quarter</td>
-                            <td>YTD</td>
-                            <td>Rolling 12-Mo.</td>
+                            <td class="w33p">Recent Quarter</td>
+                            <td class="w33p">YTD</td>
+                            <td class="w33p">Rolling 12-Mo.</td>
                         </tr>
                     </table>
                 </td>
-                <td colspan="3" style="width: 37%">
-                    <table style="width: 100%">
+                <td colspan="3" class="w37p">
+                    <table class="w100p">
                         <tr>
                             <td colspan="3">YOY Change</td>
                         </tr>
                         <tr>
-                            <td>Same &nbsp;&nbsp; Quarter</td>
-                            <td>YTD</td>
-                            <td>Rolling 12-Mo.</td>
+                            <td class="w37p">Same &nbsp;&nbsp; Quarter</td>
+                            <td >YTD</td>
+                            <td class="w33p">Rolling 12-Mo.</td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr>
-                <td style="background-color: lightgrey">Total Revenue</td>
-                <td style="background-color: #80c7e6">$433M</td>
-                <td style="background-color: #80c7e6">$914M</td>
-                <td style="background-color: #80c7e6">$2053M</td>
-                <td style="background-color: #80c7e6">-0.1%</td>
-                <td style="background-color: #80c7e6">2.5%</td>
-                <td style="background-color: #80c7e6">6.0%</td>
+                <td class="bcblue">Total Revenue</td>
+                <td class="bcblue">$433M</td>
+                <td class="bcblue">$914M</td>
+                <td class="bcblue">$2053M</td>
+                <td class="bcblue"><i class="fa fa-arrow-right pull-left cyellow"></i>-0.1%</td>
+                <td class="bcblue"><i class="fa fa-arrow-up pull-left cgreen"></i>2.5%</td>
+                <td class="bcblue"><i class="fa fa-arrow-up pull-left cgreen"></i>6.0%</td>
             </tr>
-            <tr>
+            <tr class="bcwhite">
                 <td>Mens</td>
                 <td>$165M</td>
                 <td>$325M</td>
                 <td>$724M</td>
-                <td>26.7%</td>
-                <td>27.3%</td>
-                <td>33.0%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>26.7%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>27.3%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>33.0%</td>
             </tr>
-            <tr style="background-color: lavender">
+            <tr>
                 <td>Womens</td>
                 <td>$268M</td>
                 <td>$589M</td>
                 <td>$1329M</td>
-                <td>-2.9%</td>
-                <td>0.0%</td>
-                <td>3.1%</td>
+                <td><i class="fa fa-arrow-down pull-left cred"></i>-2.9%</td>
+                <td><i class="fa fa-arrow-right pull-left cyellow" ></i>0.0%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>3.1%</td>
             </tr>
-            <tr>
+            <tr class="bcwhite">
                 <td>Online</td>
                 <td>$52M</td>
                 <td>$104M</td>
                 <td>$245M</td>
-                <td>2.9%</td>
-                <td>4.4%</td>
-                <td>8.4%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>2.9%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>4.4%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>8.4%</td>
             </tr>
-            <tr style="background-color: lavender">
+            <tr>
                 <td>Store</td>
                 <td>$382M</td>
                 <td>$810M</td>
                 <td>$1809M</td>
-                <td>-1.9%</td>
-                <td>1.4%</td>
-                <td>4.7%</td>
+                <td><i class="fa fa-arrow-down pull-left cred" ></i>-1.9%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>1.4%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>4.7%</td>
             </tr>
-            <tr>
+            <tr class="bcwhite">
                 <td>CRM</td>
                 <td>$61M</td>
                 <td>$134M</td>
                 <td>$367M</td>
-                <td>-10.4%</td>
-                <td>-8.3%</td>
-                <td>11.5%</td>
+                <td><i class="fa fa-arrow-down pull-left cred" ></i>-10.4%</td>
+                <td><i class="fa fa-arrow-down pull-left cred" ></i>-8.3%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>11.5%</td>
             </tr>
-            <tr style="background-color: lavender">
+            <tr>
                 <td>non-CRM</td>
                 <td>$373M</td>
                 <td>$779M</td>
                 <td>$1687M</td>
-                <td>1.7%</td>
-                <td>4.6%</td>
-                <td>4.8%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>1.7%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>4.6%</td>
+                <td><i class="fa fa-arrow-up pull-left cgreen"></i>4.8%</td>
             </tr>
         </table>
         <h3>Company Sales</h3>
     </div>
 
-    <div id="svg" style="width:700px; text-align: center"></div>
+    <div id="svg1" class="w880 tac"></div>
 
 </div>
-
