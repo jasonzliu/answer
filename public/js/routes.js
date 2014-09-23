@@ -57,5 +57,10 @@ angular
                 url: "/emailtemplate",
                 templateUrl: "./partials/emailtemplate.html",
                 controller: 'emailTemplateCtrl'
+            })
+            .state('express', {
+                url: "/express",
+                templateUrl: "./partials/express.html",
+                controller: 'expressCtrl'
             });
     });
