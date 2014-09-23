@@ -5,6 +5,19 @@ angular
             var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
             return value.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
         };
+        function make_x_axis(x) {
+            return d3.svg.axis()
+                .scale(x)
+                .orient("bottom")
+                .ticks(5)
+        }
+
+        function make_y_axis(y) {
+            return d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .ticks(5)
+        }
         function svg1() {
             var margin = {top: 20, right: 20, bottom: 30, left: 40},
                 width = 650 - margin.left - margin.right,
@@ -34,7 +47,14 @@ angular
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr("class", "grid")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                .call(make_x_axis(x0)
+                    .tickSize(-height, 0, 0)
+                    .tickFormat(""))
+                .call(make_y_axis(y)
+                    .tickSize(-width, 0, 0)
+                    .tickFormat(""));
 
             svg.append("text")
                 .attr("dy", ".75em")
@@ -229,7 +249,14 @@ angular
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr("class", "grid")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                .call(make_x_axis(x)
+                    .tickSize(-height, 0, 0)
+                    .tickFormat(""))
+                .call(make_y_axis(y)
+                    .tickSize(-width, 0, 0)
+                    .tickFormat(""));
 
             var data = [
                 {
@@ -349,7 +376,7 @@ angular
                 height = 300 - margin.top - margin.bottom;
 
             var x0 = d3.scale.ordinal()
-                .rangeRoundBands([0, width], .1);
+                .rangeRoundBands([0, width], .3);
 
             var x1 = d3.scale.ordinal();
 
@@ -372,7 +399,14 @@ angular
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr("class", "grid")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                .call(make_x_axis(x0)
+                    .tickSize(-height, 0, 0)
+                    .tickFormat(""))
+                .call(make_y_axis(y)
+                    .tickSize(-width, 0, 0)
+                    .tickFormat(""));
 
             svg.append("text")
                 .attr("dy", ".75em")
