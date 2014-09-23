@@ -36,6 +36,12 @@ angular
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+            svg.append("text")
+                .attr("dy", ".75em")
+                .attr("transform","translate(-40,100) rotate(270)")
+                .attr("style", "fill: rgb(0, 0, 0); ")
+                .text("Sales in Million $");
+
             var data = [
                 {
                     "State": "DEC",
@@ -142,8 +148,8 @@ angular
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
                 .attr("dy", ".71em")
-                .style("text-anchor", "end")
-                .text("SALES ($ in million)");
+                .style("text-anchor", "end");
+                //.text("SALES ($ in million)");
 
             var state = svg.selectAll(".state")
                 .data(data)
