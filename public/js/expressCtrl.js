@@ -66,15 +66,73 @@ angular
             var data = [
                 {
                     "State": "DEC",
-                    "Dec 2010 - Jan 2012": 200
+                    "Dec 2010 - Jan 2012": 200,
+                    "Dec 2011 - Jan 2013": 230
                 },
                 {
                     "State": "JAN",
-                    "Dec 2010 - Jan 2012": 105
+                    "Dec 2010 - Jan 2012": 105,
+                    "Dec 2011 - Jan 2013": 98
                 },
                 {
                     "State": "FEB",
-                    "Dec 2010 - Jan 2012": 140
+                    "Dec 2010 - Jan 2012": 140,
+                    "Dec 2011 - Jan 2013": 152
+                },
+                {
+                    "State": "MAR",
+                    "Dec 2010 - Jan 2012": 177,
+                    "Dec 2011 - Jan 2013": 188
+                },
+                {
+                    "State": "APR",
+                    "Dec 2010 - Jan 2012": 150,
+                    "Dec 2011 - Jan 2013": 155
+                },
+                {
+                    "State": "MAY",
+                    "Dec 2010 - Jan 2012": 147,
+                    "Dec 2011 - Jan 2013": 147
+                },
+                {
+                    "State": "JUN",
+                    "Dec 2010 - Jan 2012": 170,
+                    "Dec 2011 - Jan 2013": 173
+                },
+                {
+                    "State": "JUL",
+                    "Dec 2010 - Jan 2012": 125,
+                    "Dec 2011 - Jan 2013": 125
+                },
+                {
+                    "State": "AUG",
+                    "Dec 2010 - Jan 2012": 138,
+                    "Dec 2011 - Jan 2013": 0
+                },
+                {
+                    "State": "SEP",
+                    "Dec 2010 - Jan 2012": 196,
+                    "Dec 2011 - Jan 2013": 0
+                },
+                {
+                    "State": "OCT",
+                    "Dec 2010 - Jan 2012": 161,
+                    "Dec 2011 - Jan 2013": 0
+                },
+                {
+                    "State": "NOV",
+                    "Dec 2010 - Jan 2012": 217,
+                    "Dec 2011 - Jan 2013": 0
+                },
+                {
+                    "State": "DEC ",
+                    "Dec 2010 - Jan 2012": 330,
+                    "Dec 2011 - Jan 2013": 0
+                },
+                {
+                    "State": "JAN ",
+                    "Dec 2010 - Jan 2012": 97,
+                    "Dec 2011 - Jan 2013": 0
                 }
             ];
             var ageNames = d3.keys(data[0]).filter(function (key) {
