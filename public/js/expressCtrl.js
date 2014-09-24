@@ -564,9 +564,27 @@ angular
                 .orient("right")
                 .tickFormat(d3.format("%"));
 
-            var svg = d3.select("#svg4").append("svg")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)
+            var main = d3.select("#svg4").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom);
+
+            main.append("defs")
+                .append("marker")
+                .attr("id", "markerSquare")
+                .attr("markerWidth", "7")
+                .attr("markerHeight", "7")
+                .attr("refX", "4")
+                .attr("refY", "4")
+                .attr("orient", "auto")
+                .append("rect")
+                .attr("x", "1")
+                .attr("y", "1")
+                .attr("height", "8")
+                .attr("width", "8")
+                .attr("style", "stroke: none; fill:#000000;");
+
+
+            var svg = main
                     .append("g")
                     .attr("class", "grid")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
@@ -575,11 +593,9 @@ angular
                         .tickFormat(""))
                     .call(make_y_axis(y0)
                         .tickSize(-width, 0, 0)
-                        .tickFormat(""))
-                ;/*.attr("transform", "translate(" + width + " ,0)")
-             .call(make_y_axis(y1, "right")
-             .tickSize(-width, 0, 0)
-             .tickFormat(""));*/
+                        .tickFormat(""));
+
+
 
             svg.append("text")
                 .attr("dy", ".75em")
@@ -696,7 +712,10 @@ angular
                 .attr("stroke-width", "6")
                 .attr("stroke-linecap", "round")
                 .style("stroke", "blue")
-                .style("fill", "none");
+                .style("fill", "none")
+                .style("marker-start", "url(#markerSquare)")
+                .style("marker-mid", "url(#markerSquare)")
+                .style("marker-end", "url(#markerSquare)");
 
             var legend = svg.selectAll(".legend")
                 .data(ageNames.slice())
