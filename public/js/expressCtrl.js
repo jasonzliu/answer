@@ -192,6 +192,8 @@ angular
                 .attr("y", function (d) {
                     return y(d.value);
                 })
+                .attr("rx", "5")
+                .attr("ry", "5")
                 .attr("height", function (d) {
                     return height - y(d.value);
                 })
@@ -323,6 +325,8 @@ angular
                 .attr("y", function (d) {
                     return y(d.y1);
                 })
+                .attr("rx", "5")
+                .attr("ry", "5")
                 .attr("height", function (d) {
                     return y(d.y0) - y(d.y1);
                 })
@@ -496,6 +500,8 @@ angular
                 .attr("y", function (d) {
                     return y(d.value);
                 })
+                .attr("rx", "5")
+                .attr("ry", "5")
                 .attr("height", function (d) {
                     return height - y(d.value);
                 })
