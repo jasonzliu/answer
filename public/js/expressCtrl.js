@@ -24,7 +24,7 @@ angular
                 height = 300 - margin.top - margin.bottom;
 
             var x0 = d3.scale.ordinal()
-                .rangeRoundBands([0, width], 0.4);
+                .rangeRoundBands([0, width], 0.1);
 
             var x1 = d3.scale.ordinal();
 
