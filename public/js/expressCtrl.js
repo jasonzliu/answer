@@ -11,18 +11,17 @@ angular
                 .orient("bottom")
                 .ticks(5)
         }
-
         function make_y_axis(y, direction) {
             return d3.svg.axis()
                 .scale(y)
                 .orient(direction ? direction: "left")
                 .ticks(5)
         }
-        function svg1() {
-            var margin = {top: 20, right: 20, bottom: 30, left: 40},
-                width = 650 - margin.left - margin.right,
-                height = 300 - margin.top - margin.bottom;
+        var margin = {top: 20, right: 20, bottom: 30, left: 40},
+            width = 650 - margin.left - margin.right,
+            height = 300 - margin.top - margin.bottom;
 
+        function svg1() {
             var x0 = d3.scale.ordinal()
                 .rangeRoundBands([0, width], 0.1);
 
@@ -224,10 +223,6 @@ angular
                 });
         }
         function svg2() {
-            var margin = {top: 20, right: 20, bottom: 30, left: 40},
-                width = 650 - margin.left - margin.right,
-                height = 300 - margin.top - margin.bottom;
-
             var x = d3.scale.ordinal()
                 .rangeRoundBands([0, width], 0.5);
 
@@ -374,10 +369,6 @@ angular
                 });
         }
         function svg3() {
-            var margin = {top: 20, right: 20, bottom: 30, left: 40},
-                width = 650 - margin.left - margin.right,
-                height = 300 - margin.top - margin.bottom;
-
             var x0 = d3.scale.ordinal()
                 .rangeRoundBands([0, width], .3);
 
@@ -532,9 +523,6 @@ angular
                 });
         }
         function svg4() {
-            var margin = {top: 20, right: 20, bottom: 30, left: 40},
-                width = 650 - margin.left - margin.right,
-                height = 300 - margin.top - margin.bottom;
 
             var x0 = d3.scale.ordinal()
                 .rangeRoundBands([0, width], 0.4);
