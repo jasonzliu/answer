@@ -588,6 +588,13 @@ angular
                 .attr("class", "fwbolder")
                 .text("% Total Sales");
 
+            svg.append("text")
+                .attr("dy", ".75em")
+                .attr("transform","translate(600,200) rotate(270)")
+                .attr("style", "fill: rgb(0, 0, 0); ")
+                .attr("class", "fwbolder")
+                .text("PLCC");
+
             var data = [
                 {
                     "State": "Same Quarter",
