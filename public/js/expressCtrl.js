@@ -12,10 +12,10 @@ angular
                 .ticks(5)
         }
 
-        function make_y_axis(y) {
+        function make_y_axis(y, direction) {
             return d3.svg.axis()
                 .scale(y)
-                .orient("left")
+                .orient(direction ? direction: "left")
                 .ticks(5)
         }
         function svg1() {
@@ -24,7 +24,7 @@ angular
                 height = 300 - margin.top - margin.bottom;
 
             var x0 = d3.scale.ordinal()
-                .rangeRoundBands([0, width], .1);
+                .rangeRoundBands([0, width], 0.4);
 
             var x1 = d3.scale.ordinal();
 
@@ -32,7 +32,7 @@ angular
                 .range([height, 0]);
 
             var color = d3.scale.ordinal()
-                .range(["#89B471", "#1CB42F", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+                .range(["#89B471", "#1CB42F"]);
 
             var xAxis = d3.svg.axis()
                 .scale(x0)
@@ -66,76 +66,16 @@ angular
             var data = [
                 {
                     "State": "DEC",
-                    "Dec 2010 - Jan 2012": 200,
-                    "Dec 2011 - Jan 2013": 230
+                    "Dec 2010 - Jan 2012": 200
                 },
                 {
                     "State": "JAN",
-                    "Dec 2010 - Jan 2012": 105,
-                    "Dec 2011 - Jan 2013": 98
+                    "Dec 2010 - Jan 2012": 105
                 },
                 {
                     "State": "FEB",
-                    "Dec 2010 - Jan 2012": 140,
-                    "Dec 2011 - Jan 2013": 152
-                },
-                {
-                    "State": "MAR",
-                    "Dec 2010 - Jan 2012": 177,
-                    "Dec 2011 - Jan 2013": 188
-                },
-                {
-                    "State": "APR",
-                    "Dec 2010 - Jan 2012": 150,
-                    "Dec 2011 - Jan 2013": 155
-                },
-                {
-                    "State": "MAY",
-                    "Dec 2010 - Jan 2012": 147,
-                    "Dec 2011 - Jan 2013": 147
-                },
-                {
-                    "State": "JUN",
-                    "Dec 2010 - Jan 2012": 170,
-                    "Dec 2011 - Jan 2013": 173
-                },
-                {
-                    "State": "JUL",
-                    "Dec 2010 - Jan 2012": 125,
-                    "Dec 2011 - Jan 2013": 125
-                },
-                {
-                    "State": "AUG",
-                    "Dec 2010 - Jan 2012": 138,
-                    "Dec 2011 - Jan 2013": 0
-                },
-                {
-                    "State": "SEP",
-                    "Dec 2010 - Jan 2012": 196,
-                    "Dec 2011 - Jan 2013": 0
-                },
-                {
-                    "State": "OCT",
-                    "Dec 2010 - Jan 2012": 161,
-                    "Dec 2011 - Jan 2013": 0
-                },
-                {
-                    "State": "NOV",
-                    "Dec 2010 - Jan 2012": 217,
-                    "Dec 2011 - Jan 2013": 0
-                },
-                {
-                    "State": "DEC ",
-                    "Dec 2010 - Jan 2012": 330,
-                    "Dec 2011 - Jan 2013": 0
-                },
-                {
-                    "State": "JAN ",
-                    "Dec 2010 - Jan 2012": 97,
-                    "Dec 2011 - Jan 2013": 0
+                    "Dec 2010 - Jan 2012": 140
                 }
-
-
             ];
             var ageNames = d3.keys(data[0]).filter(function (key) {
                 return key !== "State";
@@ -164,13 +104,14 @@ angular
 
             svg.append("g")
                 .attr("class", "y axis")
-                .call(yAxis)
-                .append("text")
+                .call(yAxis);
+                /*.append("text")
+                /*.append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end");
-                //.text("SALES ($ in million)");
+                .text("SALES ($ in million)");*/
 
             var state = svg.selectAll(".state")
                 .data(data)
@@ -532,8 +473,209 @@ angular
                     return d;
                 });
         }
+        function svg4() {
+            var margin = {top: 20, right: 20, bottom: 30, left: 40},
+                width = 650 - margin.left - margin.right,
+                height = 300 - margin.top - margin.bottom;
+
+            var x0 = d3.scale.ordinal()
+                .rangeRoundBands([0, width], 0.4);
+
+            var x1 = d3.scale.ordinal();
+
+            var y0 = d3.scale.linear()
+                .range([height, 0]);
+
+            var y1 = d3.scale.linear()
+                .range([height, 0]);
+
+            var color = d3.scale.ordinal()
+                .range(["D3747A", "#1CB42F"]);
+
+            var xAxis = d3.svg.axis()
+                .scale(x0)
+                .orient("bottom");
+
+            var y0Axis = d3.svg.axis()
+                .scale(y0)
+                .orient("left")
+                .tickFormat(d3.format("%"));
+
+            var y1Axis = d3.svg.axis()
+                .scale(y1)
+                .orient("right")
+                .tickFormat(d3.format("%"));
+
+            var svg = d3.select("#svg4").append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("class", "grid")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                    .call(make_x_axis(x0)
+                        .tickSize(-height, 0, 0)
+                        .tickFormat(""))
+                    .call(make_y_axis(y0)
+                        .tickSize(-width, 0, 0)
+                        .tickFormat(""))
+                ;/*.attr("transform", "translate(" + width + " ,0)")
+             .call(make_y_axis(y1, "right")
+             .tickSize(-width, 0, 0)
+             .tickFormat(""));*/
+
+            svg.append("text")
+                .attr("dy", ".75em")
+                .attr("transform","translate(-40,200) rotate(270)")
+                .attr("style", "fill: rgb(0, 0, 0); ")
+                .attr("class", "fwbolder")
+                .text("Sales (in millions)");
+
+            var data = [
+                {
+                    "State": "Same Quarter",
+                    "Dec 2010 - Jan 2012": 0.5,
+                    "xx":0.05
+                },
+                {
+                    "State": "YTD",
+                    "Dec 2010 - Jan 2012": 0.4,
+                    "xx":0.07
+                },
+                {
+                    "State": "Rolling 12-Mo.",
+                    "Dec 2010 - Jan 2012": 0.62,
+                    "xx":0.11
+                }
+            ];
+            var ageNames = d3.keys(data[0]).filter(function (key) {
+                return key !== "State" && key != "xx";
+            });
+
+            data.forEach(function (d) {
+                d.ages = ageNames.map(function (name) {
+                    return {name: name, value: +d[name]};
+                });
+            });
+
+            x0.domain(data.map(function (d) {
+                return d.State;
+            }));
+            x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+            y0.domain([0, d3.max(data, function (d) {
+                return d3.max(d.ages, function (d) {
+                    return d.value;
+                });
+            })]);
+            y1.domain([0, d3.max(data, function (d) {
+                return d3.max(d.ages, function (d) {
+                    return d.value / 5;
+                });
+            })]);
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("class", "y axis")
+                .call(y0Axis);
+            /*.append("text")
+             /*.append("text")
+             .attr("transform", "rotate(-90)")
+             .attr("y", 6)
+             .attr("dy", ".71em")
+             .style("text-anchor", "end");
+             .text("SALES ($ in million)");*/
+
+            svg.append("g")
+                .attr("class", "y axis")
+                .attr("transform", "translate(580,0)")
+                .call(y1Axis);
+
+            var state = svg.selectAll(".state")
+                .data(data)
+                .enter().append("g")
+                .attr("class", "g")
+                .attr("transform", function (d) {
+                    return "translate(" + x0(d.State) + ",0)";
+                });
+
+            state.selectAll("rect")
+                .data(function (d) {
+                    return d.ages;
+                })
+                .enter().append("rect")
+                .attr("width", x1.rangeBand())
+                .attr("x", function (d) {
+                    return x1(d.name);
+                })
+                .attr("y", function (d) {
+                    return y0(d.value);
+                })
+                .attr("rx", "3")
+                .attr("ry", "3")
+                .attr("height", function (d) {
+                    return height - y0(d.value);
+                })
+                .style("fill", function (d) {
+                    return color(d.name);
+                });
+            var valueline = d3.svg.line()
+                .x(function(d) {
+                    console.log(x0(d.State) + 40 + "    ");
+                    return x0(d.State) + 40; })
+                .y(function(d) {
+                    console.log(y1(d.xx) + "    ")
+                    return y1(d.xx); });
+
+            svg.append("path")
+                .attr("class", "line")
+                .attr("d", valueline(data))
+                .attr("stroke-width", "6")
+                .attr("stroke-linecap", "round")
+                .style("stroke", "blue")
+                .style("fill", "none");
+
+            var legend = svg.selectAll(".legend")
+                .data(ageNames.slice())
+                .enter().append("g")
+                .attr("class", "legend")
+                .attr("transform", function (d, i) {
+                    return "translate(" + i * 120 + ",0)";
+                });
+
+            legend.append("rect")
+                .attr("x", width - 378)
+                .attr("width", 18)
+                .attr("height", 18)
+                .style("fill", color);
+
+            legend.append("text")
+                .attr("x", width - 384)
+                .attr("y", 9)
+                .attr("dy", ".35em")
+                .style("text-anchor", "end")
+                .text("% total sales");
+
+            legend.append("rect")
+                .attr("x", width - 278)
+                .attr("y", 10)
+                .attr("width", 18)
+                .attr("height", 2)
+                .style("fill", "blue");
+
+            legend.append("text")
+                .attr("x", width - 284)
+                .attr("y", 9)
+                .attr("dy", ".35em")
+                .style("text-anchor", "end")
+                .text("PLCC");
+        }
+
         svg1();
         svg2();
         svg3();
+        svg4();
     });
 
