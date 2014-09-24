@@ -586,7 +586,7 @@ angular
                 .attr("transform","translate(-40,200) rotate(270)")
                 .attr("style", "fill: rgb(0, 0, 0); ")
                 .attr("class", "fwbolder")
-                .text("Sales (in millions)");
+                .text("% Total Sales");
 
             var data = [
                 {
@@ -680,12 +680,8 @@ angular
                     return color(d.name);
                 });
             var valueline = d3.svg.line()
-                .x(function(d) {
-                    console.log(x0(d.State) + 40 + "    ");
-                    return x0(d.State) + 40; })
-                .y(function(d) {
-                    console.log(y1(d.xx) + "    ")
-                    return y1(d.xx); });
+                .x(function(d) {return x0(d.State) + 45; })
+                .y(function(d) {return y1(d.xx); });
 
             svg.append("path")
                 .attr("class", "line")
