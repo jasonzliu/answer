@@ -62,5 +62,10 @@ angular
                 url: "/express",
                 templateUrl: "./partials/express.html",
                 controller: 'expressCtrl'
-            });
+            })
+            .state('geo', {
+                url: "/geo",
+                templateUrl: "./partials/geo.html",
+                controller: 'geoCtrl'
+            })
     });
