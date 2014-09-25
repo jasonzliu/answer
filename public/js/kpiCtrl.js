@@ -42,8 +42,32 @@ angular
             return min - overflow + (max - min + overflow * 2) *  Math.random();
         }
 
+        var cps = [];
+        var cpc = [];
+        var cpcl = [];
+        var qps = [];
+        var qpc = [];
+        var qpcl = [];
+
+        function init(){
+            for (var i = 0; i<200; i++){
+                cps.push(getRandomValue(2000,3000));
+                cpc.push(getRandomValue(200,300));
+                cpcl.push(getRandomValue(0,100));
+                qps.push(getRandomValue(5000,10000));
+                qpc.push(getRandomValue(1000,1500));
+                qpcl.push(getRandomValue(10000,15000));
+            }
+        }
+
+        init();
         $scope.dtTo = new Date();
         $scope.dtFrom =new Date(new Date().setDate($scope.dtTo.getDate()-30));
+        $scope.campaignType = 1;
+        $scope.program = 4;
+        $scope.mediaType = 16;
+        $scope.region = 19;
+        $scope.product = 26;
 
         createGauge("cost_per_sale", "Cost Per Sale", 2000, 3000);
         createGauge("cost_per_call", "Cost Per Call", 200, 300);
@@ -52,14 +76,14 @@ angular
         createGauge("quantity_per_call", "Quantity Per Call", 1000, 1500);
         createGauge("quantity_per_click", "Quantity Per Click", 10000, 15000);
 
-
         $scope.query = function(){
-            updateGauge("cost_per_sale", getRandomValue(2000,3000));
-            updateGauge("cost_per_call", getRandomValue(200,300));
-            updateGauge("cost_per_click", getRandomValue(0,100));
-            updateGauge("quantity_per_sale", getRandomValue(5000,10000));
-            updateGauge("quantity_per_call", getRandomValue(1000,1500));
-            updateGauge("quantity_per_click", getRandomValue(10000,15000));
+            var index = Number($scope.campaignType) + Number($scope.program) + Number($scope.mediaType) + Number($scope.region) + Number($scope.product);
+            updateGauge("cost_per_sale", cps[index]);
+            updateGauge("cost_per_call", cpc[index]);
+            updateGauge("cost_per_click", cpcl[index]);
+            updateGauge("quantity_per_sale", qps[index]);
+            updateGauge("quantity_per_call", qpc[index]);
+            updateGauge("quantity_per_click", qpcl[index]);
         };
 
     });
