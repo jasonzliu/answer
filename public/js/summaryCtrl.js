@@ -332,11 +332,28 @@ angular
                     return y(d.value);
                 });
 
-            var svg = d3.select("#line").append("svg")
+            var main = d3.select("#line").append("svg")
                 .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-                .append("g")
+                .attr("height", height + margin.top + margin.bottom);
+
+            main.append("defs")
+                .append("marker")
+                .attr("id", "markerSquare")
+                .attr("markerWidth", "7")
+                .attr("markerHeight", "7")
+                .attr("refX", "4")
+                .attr("refY", "4")
+                .attr("orient", "auto")
+                .append("rect")
+                .attr("x", "1")
+                .attr("y", "1")
+                .attr("height", "2")
+                .attr("width", "2")
+                .attr("style", "stroke: none; fill:#000000;");
+
+            var svg = main.append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
 
             color.domain(d3.keys(data[0]).filter(function (key) {
                 return key !== "week";
@@ -413,7 +430,10 @@ angular
                 })
                 .style("stroke", function (d) {
                     return color(d.name);
-                });
+                })
+                .style("marker-start", "url(#markerSquare)")
+                .style("marker-mid", "url(#markerSquare)")
+                .style("marker-end", "url(#markerSquare)");
 
             value.append("text")
                 .datum(function (d) {
