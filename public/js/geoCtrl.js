@@ -15,9 +15,8 @@ angular
             "CO", "NM", "OR", "ND", "SD", "NE", "IA", "MS", "IN", "IL", "MN",
             "WI", "MO", "AR", "OK", "KS", "LS", "VA"]
             .forEach(function(d){
-                var budget=Math.round(100*Math.random()),
-                    sales=Math.round(100*Math.random());
-                sampleData[d]={budget:d3.min([budget, sales]), sales:d3.max([budget,sales]), color:d3.interpolate("#ffffcc", "#800026")(budget/100)};
+                //sampleData[d]={budget:Math.round(100*Math.random()), sales:Math.round(100*Math.random()), color:d3.interpolate("#ffffcc", "#800026")(Math.random())};
+                sampleData[d]={budget:Math.round(100*Math.random()), sales:Math.round(100*Math.random()), color:"hsl(" + Math.random() * 360 + ",70%,60%)"};
             });
 
         /* draw states on id #statesvg */
