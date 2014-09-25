@@ -79,3 +79,8 @@ select format((ttd_budget)/sum(ctd_dir_clicks+ctd_mc_clicks),0) from tbl_campaig
 
 ##quantity_per_click
 select format(sum(ctd_quantity)/sum(ctd_dir_clicks+ctd_mc_clicks),0) from tbl_campaign where end_date_traditional between (start_date) and (end_date_traditional) and campaign_type="general" and program="movers" and media_type="mass" and region_code="w" and product_code="bund";
+
+
+//http://bl.ocks.org/mbostock/3884955 //timeline chart
+
+http://jsfiddle.net/kyaSy/ tooltip

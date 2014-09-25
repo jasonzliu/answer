@@ -233,75 +233,32 @@ angular
                     return data[i].name + '  ' + data[i].percent;
                 }
             );
-
-
-        }
+        };
 
         var budgets = [
-            {"week": 1, "value": 0.480667},
-            {"week": 2, "value": 0.480667},
-            {"week": 3, "value": 0.480667},
-            {"week": 4, "value": 8.217382},
-            {"week": 5, "value": 9.267254},
-            {"week": 6, "value": 12.355092},
-            {"week": 7, "value": 14.323316},
-            {"week": 8, "value": 19.642847},
-            {"week": 9, "value": 19.485895},
-            {"week": 10, "value": 22.126781},
-            {"week": 11, "value": 24.777467},
-            {"week": 12, "value": 27.202007},
-            {"week": 13, "value": 30.683126},
-            {"week": 14, "value": 31.133291},
-            {"week": 15, "value": 33.484659},
-            {"week": 16, "value": 36.096725},
-            {"week": 17, "value": 40.20436},
-            {"week": 18, "value": 31.010171},
-            {"week": 19, "value": 34.859894},
-            {"week": 20, "value": 47.767914},
-            {"week": 21, "value": 54.284705},
-            {"week": 22, "value": 54.763808},
-            {"week": 23, "value": 63.231349},
-            {"week": 24, "value": 21.775743},
-            {"week": 25, "value": 72.876676},
-            {"week": 26, "value": 82.472866},
-            {"week": 27, "value": 90.717866},
-            {"week": 28, "value": 117.310948},
-            {"week": 29, "value": 133.860528},
-            {"week": 30, "value": 147.063045},
-            {"week": 31, "value": 45.674854}
+            {"Week": 22, "Total": 54, "North": 24, "South" : 30},
+            {"Week": 23, "Total": 60, "North": 27, "South" : 33},
+            {"Week": 24, "Total": 71, "North": 35, "South" : 36},
+            {"Week": 25, "Total": 72, "North": 50, "South" : 22},
+            {"Week": 26, "Total": 82, "North": 42, "South" : 40},
+            {"Week": 27, "Total": 90, "North": 36, "South" : 54},
+            {"Week": 28, "Total": 117, "North": 57, "South" : 60},
+            {"Week": 29, "Total": 129, "North": 62, "South" : 67},
+            {"Week": 30, "Total": 127, "North": 65, "South" : 62},
+            {"Week": 31, "Total": 105, "North": 50, "South" : 55}
         ];
         var sales = [
-            {"week": 1, "value": 9},
-            {"week": 2, "value": 34},
-            {"week": 3, "value": 59},
-            {"week": 4, "value": 81},
-            {"week": 5, "value": 107},
-            {"week": 6, "value": 125},
-            {"week": 7, "value": 140},
-            {"week": 8, "value": 155},
-            {"week": 9, "value": 178},
-            {"week": 10, "value": 200},
-            {"week": 11, "value": 218},
-            {"week": 12, "value": 234},
-            {"week": 13, "value": 259},
-            {"week": 14, "value": 288},
-            {"week": 15, "value": 312},
-            {"week": 16, "value": 333},
-            {"week": 17, "value": 346},
-            {"week": 18, "value": 374},
-            {"week": 19, "value": 467},
-            {"week": 20, "value": 556},
-            {"week": 21, "value": 655},
-            {"week": 22, "value": 792},
-            {"week": 23, "value": 1047},
-            {"week": 24, "value": 1706},
-            {"week": 25, "value": 3341},
-            {"week": 26, "value": 5026},
-            {"week": 27, "value": 6378},
-            {"week": 28, "value": 8204},
-            {"week": 29, "value": 10804},
-            {"week": 30, "value": 13735},
-            {"week": 31, "value": 16673}
+
+            {"Week": 22, "Total": 792, "North": 400, "South" : 392},
+            {"Week": 23, "Total": 1047, "North": 527, "South" : 520},
+            {"Week": 24, "Total": 1706, "North": 903, "South" : 803},
+            {"Week": 25, "Total": 3341, "North": 1241, "South" : 2100},
+            {"Week": 26, "Total": 5026, "North": 1546, "South" : 3480},
+            {"Week": 27, "Total": 6378, "North": 2245, "South" : 4133},
+            {"Week": 28, "Total": 8204, "North": 2405, "South" : 5799},
+            {"Week": 29, "Total": 10804, "North": 4080, "South" : 6724},
+            {"Week": 30, "Total": 13735, "North": 6769, "South" : 6966},
+            {"Week": 31, "Total": 16673, "North": 7245, "South" : 9428}
         ];
         addTimeLine(budgets, 'Budget ($ in million)', 'line1');
         addTimeLine(sales, 'Sales', 'line2');
@@ -326,44 +283,30 @@ angular
             var line = d3.svg.line()
                 .interpolate("basis")
                 .x(function (d) {
-                    return x(d.week);
+                    return x(d.Week);
                 })
                 .y(function (d) {
-                    return y(d.value);
+                    return y(d.Total);
                 });
 
             var main = d3.select("#line").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom);
 
-            main.append("defs")
-                .append("marker")
-                .attr("id", "markerSquare")
-                .attr("markerWidth", "7")
-                .attr("markerHeight", "7")
-                .attr("refX", "4")
-                .attr("refY", "4")
-                .attr("orient", "auto")
-                .append("rect")
-                .attr("x", "1")
-                .attr("y", "1")
-                .attr("height", "2")
-                .attr("width", "2")
-                .attr("style", "stroke: none; fill:#000000;");
-
             var svg = main.append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
             color.domain(d3.keys(data[0]).filter(function (key) {
-                return key !== "week";
+                return key !== "Week";
             }));
 
             var values = color.domain().map(function (name) {
                 return {
                     name: name,
                     values: data.map(function (d) {
-                        return {week: d.week, value: +d[name]};
+                        return {Week: d.Week, Total: d[name]};
+                        //return {Week: d.Week, Total: d.Total, North: d.North, South: d.South};
                     })
                 };
             });
@@ -373,12 +316,12 @@ angular
             x.domain([
                 d3.min(values, function (c) {
                     return d3.min(c.values, function (v) {
-                        return v.week;
+                        return v.Week;
                     });
                 }),
                 d3.max(values, function (c) {
                     return d3.max(c.values, function (v) {
-                        return v.week;
+                        return v.Week;
                     });
                 })
             ]);
@@ -386,12 +329,12 @@ angular
             y.domain([
                 d3.min(values, function (c) {
                     return d3.min(c.values, function (v) {
-                        return v.value;
+                        return v.Total;
                     });
                 }),
                 d3.max(values, function (c) {
                     return d3.max(c.values, function (v) {
-                        return v.value;
+                        return v.Total;
                     });
                 })
             ]);
@@ -402,11 +345,11 @@ angular
                 .call(xAxis)
                 .append("text")
                 .attr("transform", "rotate(0)")
-                .attr("x", 515)
+                .attr("x", -10)
                 .attr("y", 15)
                 .attr("dx", ".11em")
                 .style("text-anchor", "end")
-                .text("week");
+                .text("Week");
 
             svg.append("g")
                 .attr("class", "y axis")
@@ -430,20 +373,78 @@ angular
                 })
                 .style("stroke", function (d) {
                     return color(d.name);
+                });
+            var tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([-10, 0])
+                .html(function (d) {
+                    var budgets = [
+                        {"Week": 22, "Total": 54, "North": 24, "South" : 30},
+                        {"Week": 23, "Total": 60, "North": 27, "South" : 33},
+                        {"Week": 24, "Total": 71, "North": 35, "South" : 36},
+                        {"Week": 25, "Total": 72, "North": 50, "South" : 22},
+                        {"Week": 26, "Total": 82, "North": 42, "South" : 40},
+                        {"Week": 27, "Total": 90, "North": 36, "South" : 54},
+                        {"Week": 28, "Total": 117, "North": 57, "South" : 60},
+                        {"Week": 29, "Total": 129, "North": 62, "South" : 67},
+                        {"Week": 30, "Total": 127, "North": 65, "South" : 62},
+                        {"Week": 31, "Total": 105, "North": 50, "South" : 55}
+                    ];
+                    var sales = [
+
+                        {"Week": 22, "Total": 792, "North": 400, "South" : 392},
+                        {"Week": 23, "Total": 1047, "North": 527, "South" : 520},
+                        {"Week": 24, "Total": 1706, "North": 903, "South" : 803},
+                        {"Week": 25, "Total": 3341, "North": 1241, "South" : 2100},
+                        {"Week": 26, "Total": 5026, "North": 1546, "South" : 3480},
+                        {"Week": 27, "Total": 6378, "North": 2245, "South" : 4133},
+                        {"Week": 28, "Total": 8204, "North": 2405, "South" : 5799},
+                        {"Week": 29, "Total": 10804, "North": 4080, "South" : 6724},
+                        {"Week": 30, "Total": 13735, "North": 6769, "South" : 6966},
+                        {"Week": 31, "Total": 16673, "North": 7245, "South" : 9428}
+                    ];
+                    var budget = _.where(budgets, {"Week": d.Week})[0];
+                    var sales = _.where(sales, {"Week": d.Week})[0];
+                    var obj = d.Total < 200? budget : sales;
+
+                    return "<table style='background-color: lightgrey; width:200px;'><tr style='height: 20px'><td>Week</td><td>Total</td><td>North</td><td>South</td></tr><tr style='height: 20px'><td>"
+                        + d.Week +
+                        "</td><td>"
+                        + d.Total +
+                        "</td><td>"
+                        + obj.North +
+                        "</td><td>"
+                        + obj.South +
+                        "</td></tr></table>"
+                });
+            svg.call(tip);
+
+            svg.selectAll(".circle")
+                .data(values[0].values)
+                .enter()
+                .append("circle")
+                .attr("class", "circle")
+                .attr("cx", function (d, i) {
+                    return x(d.Week);
                 })
-                .style("marker-start", "url(#markerSquare)")
-                .style("marker-mid", "url(#markerSquare)")
-                .style("marker-end", "url(#markerSquare)");
+                .attr("cy", function (d, i) {
+                    return y(d.Total);
+                })
+                .attr("r", 3)
+                .on('mouseover', tip.show)
+                .on('mouseout', tip.hide);
 
             value.append("text")
                 .datum(function (d) {
                     return {name: d.name, value: d.values[d.values.length - 1]};
                 })
                 .attr("transform", function (d) {
-                    return "translate(" + x(d.value.week) + "," + y(d.value.value) + ")";
+                    return "translate(" + x(d.value.Week) + "," + y(d.value.Total) + ")";
                 })
-                .attr("x", 3)
-                .attr("dy", ".35em");
+                .attr("x", -6)
+                .attr("y", -6)
+                .attr("dy", ".35em")
+                .text(function(d){return d.name});
         }
 
         $scope.onBar();
