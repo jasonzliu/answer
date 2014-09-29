@@ -63,11 +63,12 @@ angular
         init();*/
         $scope.dtTo = new Date();
         $scope.dtFrom =new Date(new Date().setDate($scope.dtTo.getDate()-30));
+        $scope.type = 1;
         $scope.campaignType = 1;
-        $scope.program = 4;
-        $scope.mediaType = 16;
-        $scope.region = 19;
-        $scope.product = 26;
+        $scope.program = 1;
+        $scope.mediaType = 1;
+        $scope.region = 1;
+        $scope.product = 1;
 
         createGauge("cost_per_sale", "Cost Per Sale", 2000, 3000);
         createGauge("cost_per_call", "Cost Per Call", 200, 300);
@@ -77,7 +78,8 @@ angular
         createGauge("quantity_per_click", "Quantity Per Click", 10000, 15000);
 
         $scope.query = function(){
-            var index = Number($scope.campaignType) + Number($scope.program) + Number($scope.mediaType) + Number($scope.region) + Number($scope.product);
+            var index = Number($scope.type) + Number($scope.campaignType) + Number($scope.program) + Number($scope.mediaType) + Number($scope.region) + Number($scope.product);
+            index = index + $scope.dtFrom.getMonth() +$scope.dtFrom.getDate()+ $scope.dtTo.getMonth() +$scope.dtFrom.getDate();
             updateGauge("cost_per_sale", cps[index]);
             updateGauge("cost_per_call", cpc[index]);
             updateGauge("cost_per_click", cpcl[index]);
