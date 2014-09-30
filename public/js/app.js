@@ -1,1 +1,1 @@
-angular.module('the-answer', ['ui.router', 'ngProgress', 'textAngular', 'ui.bootstrap']);
+angular.module('the-answer', ['ui.router', 'textAngular', 'ui.bootstrap']);

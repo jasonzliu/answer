@@ -1,7 +1,15 @@
 <h1>upload</h1>
 
-<input type="file"/>
+<input type="file"  class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"/>
 <br/>
-<button  data-ng-click="upload()">upload</button> <label data-ng-show="uploaded">File uploaded!</label>
+<button  type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"  data-ng-click="upload()">upload</button> <br/><br/>
+
+<progressbar max="100" value="progress" type="info" style="width:400px" data-ng-show="progress > 0 && progress < 100">
+    <span style="color:black; white-space:nowrap; ">{{progress}} / 100</span>
+</progressbar>
 
 
+<alert type="success" close="closeAlert()" style="width:400px;" ng-show="uploaded">File uploaded!</alert>
+
+<!--
+<label data-ng-show="uploaded">File uploaded!</label>-->
