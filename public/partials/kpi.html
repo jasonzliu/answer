@@ -1,4 +1,4 @@
-<style>
+<!--<style>
 
     p
     {
@@ -16,68 +16,92 @@
         padding: 30px;
     }
 
-</style>
+</style>-->
 
 <h1>kpi</h1>
 <hr/>
-<p>
-    from: <input type="date" name="" id="from" data-ng-model="dtFrom"/>
-    to: <input type="date" name="" id="to" data-ng-model="dtTo"/>
-    <input type="radio" name="type" value="1" checked data-ng-model="type">Complete
-    <input type="radio" name="type" value="2" data-ng-model="type">Ongoing
-    <br>
-    Campaign Type: 
-    <select name="" id="ddlCtype" data-ng-model="campaignType">
-        <option value="1">ALL</option>
-        <option value="2">General</option>
-        <option value="3">Diversity</option>
-    </select>
-    Program: 
-    <select name="" id="ddlProgram" data-ng-model="program">
-        <option value="1">ALL</option>
-        <option value="2">Movers</option>
-        <option value="3">UVMM</option>
-        <option value="4">BUND</option>
-        <option value="5">DSL</option>
-        <option value="6">UVSL</option>
-        <option value="7">Diversity</option>
-        <option value="8">CING</option>
-        <option value="9">DISH</option>
-        <option value="10">Winback</option>
-        <option value="11">ACC</option>
-        <option value="12">UVAQ</option>
-    </select>
-    Media type: 
-    <select name="" id="ddlMtype" data-ng-model="mediaType">
-        <option value="1">ALL</option>
-        <option value="2">Mass</option>
-        <option value="3">Direct</option>
-    </select>
-    Region: 
-    <select name="" id="ddlRegion" data-ng-model="region">
-        <option value="1">ALL</option>
-        <option value="2">NATL</option>
-        <option value="3">MW</option>
-        <option value="4">SW</option>
-        <option value="5">SE</option>
-        <option value="6">SNET</option>
-        <option value="7">W</option>
-    </select>
-    Product: 
-    <select name="" id="ddlProduct" data-ng-model="product">
-        <option value="26">ALL</option>
-        <option value="27">OTH</option>
-        <option value="28">UVMM</option>
-        <option value="29">BUND</option>
-        <option value="30">DSL</option>
-        <option value="31">UVSL</option>
-        <option value="32">DISH</option>
-        <option value="33">LD</option>
-        <option value="34">CING</option>
-        <option value="35">UVAQ</option>
-    </select>
-    <button ng-click="query()">query</button>
-</p>
+<div class="row">
+    <div class="col-md-2">Campaign Type:
+        <select name="" id="ddlCtype" data-ng-model="campaignType">
+            <option value="1">ALL</option>
+            <option value="2">General</option>
+            <option value="3">Diversity</option>
+        </select></div>
+    <div class="col-md-2">Program:
+        <select name="" id="ddlProgram" data-ng-model="program">
+            <option value="1">ALL</option>
+            <option value="2">Movers</option>
+            <option value="3">UVMM</option>
+            <option value="4">BUND</option>
+            <option value="5">DSL</option>
+            <option value="6">UVSL</option>
+            <option value="7">Diversity</option>
+            <option value="8">CING</option>
+            <option value="9">DISH</option>
+            <option value="10">Winback</option>
+            <option value="11">ACC</option>
+            <option value="12">UVAQ</option>
+        </select></div>
+    <div class="col-md-2"> Media type:
+        <select name="" id="ddlMtype" data-ng-model="mediaType">
+            <option value="1">ALL</option>
+            <option value="2">Mass</option>
+            <option value="3">Direct</option>
+        </select></div>
+    <div class="col-md-2"> Region:
+        <select name="" id="ddlRegion" data-ng-model="region">
+            <option value="1">ALL</option>
+            <option value="2">NATL</option>
+            <option value="3">MW</option>
+            <option value="4">SW</option>
+            <option value="5">SE</option>
+            <option value="6">SNET</option>
+            <option value="7">W</option>
+        </select></div>
+    <div class="col-md-2">Product:
+        <select name="" id="ddlProduct" data-ng-model="product">
+            <option value="1">ALL</option>
+            <option value="2">OTH</option>
+            <option value="3">UVMM</option>
+            <option value="4">BUND</option>
+            <option value="5">DSL</option>
+            <option value="6">UVSL</option>
+            <option value="7">DISH</option>
+            <option value="8">LD</option>
+            <option value="9">CING</option>
+            <option value="10">UVAQ</option>
+        </select></div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-1">from:</div>
+    <div class="col-md-2">
+        <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="dtFrom" is-open="fromOpened" init-date="9/1/2014"  />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openFrom($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </p>
+    </div>
+    <div class="col-md-1">to:</div>
+    <div class="col-md-2">
+        <p class="input-group">
+
+            <input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="dtTo" is-open="toOpened"  init-date="10/1/2014"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openTo($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </p>
+    </div>
+    <div class="col-md-2"><input type="radio" name="type" value="1" checked data-ng-model="type">Complete &nbsp;&nbsp;&nbsp;
+        <input type="radio" name="type" value="2" data-ng-model="type">Ongoing</div>
+    <div class="col-md-2">
+        <button  type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0"  data-ng-click="query()">query</button> <br/><br/>
+    </div>
+</div>
+
+
+
 <div id="gauge1">
     <span id="cost_per_saleGaugeContainer"></span>
     <span id="cost_per_callGaugeContainer" ></span>

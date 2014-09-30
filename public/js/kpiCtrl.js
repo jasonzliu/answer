@@ -61,8 +61,8 @@ angular
         }
 
         init();*/
-        $scope.dtTo = new Date();
-        $scope.dtFrom =new Date(new Date().setDate($scope.dtTo.getDate()-30));
+        $scope.dtTo = '10/01/2014';
+        $scope.dtFrom ='09/01/2014';
         $scope.type = 1;
         $scope.campaignType = 1;
         $scope.program = 1;
@@ -79,13 +79,26 @@ angular
 
         $scope.query = function(){
             var index = Number($scope.type) + Number($scope.campaignType) + Number($scope.program) + Number($scope.mediaType) + Number($scope.region) + Number($scope.product);
-            index = index + $scope.dtFrom.getMonth() +$scope.dtFrom.getDate()+ $scope.dtTo.getMonth() +$scope.dtFrom.getDate();
+            index = index + new Date($scope.dtFrom).getMonth() + new Date($scope.dtFrom).getDate()+ new Date($scope.dtTo).getMonth() + new Date($scope.dtTo).getDate();
             updateGauge("cost_per_sale", cps[index]);
             updateGauge("cost_per_call", cpc[index]);
             updateGauge("cost_per_click", cpcl[index]);
             updateGauge("quantity_per_sale", qps[index]);
             updateGauge("quantity_per_call", qpc[index]);
             updateGauge("quantity_per_click", qpcl[index]);
+        };
+
+        $scope.openFrom = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.fromOpened = true;
+        };
+        $scope.openTo = function($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            $scope.toOpened = true;
         };
 
     });
