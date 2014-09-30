@@ -1,12 +1,14 @@
 <style>
-    .state{
+    .state {
         fill: none;
         stroke: #a9a9a9;
         stroke-width: 1;
     }
-    .state:hover{
-        fill-opacity:0.5;
+
+    .state:hover {
+        fill-opacity: 0.5;
     }
+
     #tooltip {
         position: absolute;
         text-align: center;
@@ -18,34 +20,70 @@
         border-radius: 2px;
         pointer-events: none;
     }
-    #tooltip h4{
-        margin:0;
-        font-size:14px;
+
+    #tooltip h4 {
+        margin: 0;
+        font-size: 14px;
     }
-    #tooltip{
-        background:rgba(0,0,0,0.9);
-        border:1px solid grey;
-        border-radius:5px;
-        font-size:12px;
-        width:auto;
-        padding:4px;
-        color:white;
-        opacity:0;
+
+    #tooltip {
+        background: rgba(0, 0, 0, 0.9);
+        border: 1px solid grey;
+        border-radius: 5px;
+        font-size: 12px;
+        width: auto;
+        padding: 4px;
+        color: white;
+        opacity: 0;
     }
-    #tooltip table{
-        table-layout:fixed;
+
+    #tooltip table {
+        table-layout: fixed;
     }
-    #tooltip tr td{
-        padding:0;
-        margin:0;
+
+    #tooltip tr td {
+        padding: 0;
+        margin: 0;
     }
-    #tooltip tr td:nth-child(1){
-        width:50px;
+
+    #tooltip tr td:nth-child(1) {
+        width: 50px;
     }
-    #tooltip tr td:nth-child(2){
-        text-align:center;
+
+    #tooltip tr td:nth-child(2) {
+        text-align: center;
     }
 </style>
 
 <div id="tooltip"></div>
 <svg width="960" height="600" id="statesvg"></svg>
+
+<div style="width: 720px;">
+<h2 style="text-align: center; ">2013-2014 EXPRESS USA</h2>
+<table width="720px;">
+    <tr>
+        <td colspan="3" style="vertical-align: top">
+            <table width="360px;" class="table table-striped table-bordered table-condensed">
+                <tbody>
+                <tr ng-repeat="state in firstHalf" data-ng-model="firstHalf ">
+                    <td style="text-align: center">{{state.name}}</td>
+                    <td style="text-align: center">{{state.budget}}</td>
+                    <td style="text-align: center">{{state.sales}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td colspan="3" style="vertical-align: top">
+            <table width="360px;" class="table table-striped table-bordered table-condensed">
+                <tbody>
+                <tr ng-repeat="state in secondtHalf" data-ng-model="secondtHalf">
+                    <td style="text-align: center">{{state.name}}</td>
+                    <td style="text-align: center">{{state.budget}}</td>
+                    <td style="text-align: center">{{state.sales}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+</table>
+</div>
