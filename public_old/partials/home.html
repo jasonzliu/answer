@@ -1,135 +1,20 @@
-<div ng-controller="carouselCtrl">
-    <div style="width: 100%">
-        <carousel interval="myInterval">
-            <slide ng-repeat="slide in slides" active="slide.active">
-                <img ng-src="{{slide.image}}" style="height: 500px; width: 100% ">
+<!DOCTYPE html>
+<html lang="en" data-ng-app="angle">
 
-                <div class="carousel-caption">
-                    <h1>{{slide.text}}</h1>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="{{app.description}}">
+    <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
+    <title data-ng-bind="pageTitle()">Angle - Angular Bootstrap Admin Template</title>
+    <link rel="stylesheet" href="app/css/app.css" data-ng-if="!app.layout.isRTL">
+    <link rel="stylesheet" href="app/css/app-rtl.css" data-ng-if="app.layout.isRTL">
+</head>
 
-                    <p>{{slide.desc}}</p>
-                </div>
-            </slide>
-        </carousel>
-    </div>
-</div>
+<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed }">
+<div data-ui-view="" data-autoscroll="false" data-ng-class="mainViewAnimation" class="wrapper"></div>
+<script src="app/js/base.js"></script>
+<script src="app/js/app.js"></script>
+</body>
 
-<div class="container marketing">
-
-    <!-- Three columns of text below the carousel -->
-    <div class="row">
-        <div class="col-lg-4">
-            <img class="img-circle"
-                 src="gif\bi.jpg"
-                 alt="Generic placeholder image" style="width: 140px; height: 140px;">
-
-            <h2>Heading</h2>
-
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
-                vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo
-                cursus magna.</p>
-
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <img class="img-circle"
-                 src="gif\direct-marketing.png"
-                 alt="Generic placeholder image" style="width: 140px; height: 140px;">
-
-            <h2>Heading</h2>
-
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
-                mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh.</p>
-
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <img class="img-circle"
-                 src="gif\BI-infographic1.jpg"
-                 alt="Generic placeholder image" style="width: 140px; height: 140px;">
-
-            <h2>Heading</h2>
-
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus.</p>
-
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <!-- /.col-lg-4 -->
-    </div>
-    <!-- /.row -->
-
-
-    <!-- START THE FEATURETTES -->
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">Marketing is war.<span class="text-muted">You are the commander.</span></h2>
-
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-                semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-                commodo.</p>
-        </div>
-        <div class="col-md-5">
-            <img class="featurette-image img-responsive"  ng-src="gif/modern_war_by_greatjester-d41wmop.jpg" style="height: 500px; width: 100% ">
-
-        </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-5">
-            <img class="featurette-image img-responsive" src="gif/HOT10135.jpg"
-                 alt="Generic placeholder image">
-        </div>
-        <div class="col-md-7">
-            <h2 class="featurette-heading">We are military supplier. <span class="text-muted">Check it out.</span>
-            </h2>
-
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-                semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-                commodo.</p>
-        </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">Now let's kick some ass. <span class="text-muted">Together.</span></h2>
-
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-                semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-                commodo.</p>
-        </div>
-        <div class="col-md-5">
-            <img class="featurette-image img-responsive" src="gif\partner.jpg"
-                 alt="Generic placeholder image">
-        </div>
-    </div>
-</div>
-
-
-<p>
-    <a data-ui-sref="home">home</a>
-    <a data-ui-sref="register">register</a>
-    <a data-ui-sref="forget">forget password</a>
-    <a data-ui-sref="login">login</a>
-    <a data-ui-sref="upload">upload</a>
-    <a data-ui-sref="summary">summary</a>
-    <a data-ui-sref="kpi">kpi</a>
-    <a data-ui-sref="about">about</a>
-    <a data-ui-sref="contact">contact</a>
-    <a data-ui-sref="support">support</a>
-    <a data-ui-sref="faq">faq</a>
-    <a data-ui-sref="emailtemplate">email template</a>
-    <a data-ui-sref="express">express</a>
-    <a data-ui-sref="geo">geo</a>
-</p>
+</html>base.js

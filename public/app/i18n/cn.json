@@ -1,0 +1,106 @@
+{
+  "dashboard": {
+    "WELCOME": "欢迎来到 {{appName}}"
+  },
+  "topbar": {
+    "messages": {
+      "UNREAD": "未读消息",
+      "MORE": "更多消息"
+    },
+    "search": {
+      "PLACEHOLDER": "输入后按回车.."
+    },
+    "notification": {
+      "MORE": "更多通知"
+    }
+  },
+  "offsidebar": {
+    "setting": {
+      "SETTINGS": "设置",
+      "THEMES": "主题",
+      "layout": {
+        "FIXED": "固定",
+        "COLLAPSED": "折叠"
+      }
+    },
+    "chat": {
+      "CONNECTIONS": "连接",
+      "SEARCH": "搜索联系人",
+      "ONLINE": "在线",
+      "OFFLINE": "离线",
+      "LOAD_MORE": "载入更多",
+      "TASK_COMPLETION": "任务完成",
+      "QUOTA": "最大上传"
+    }
+  },
+  "sidebar": {
+    "WELCOME": "欢迎",
+    "heading": {
+      "HEADER": "导航",
+      "COMPONENTS": "组件",
+      "MORE": "更多"
+    },
+    "nav": {
+      "DASHBOARD": "仪表盘",
+      "WIDGETS": "小窗口",
+      "DOCUMENTATION": "文档",
+      "element": {
+        "ELEMENTS": "元素",
+        "BUTTON": "按钮",
+        "COLOR": "颜色",
+        "NOTIFICATION": "通知",
+        "INTERACTION": "交互",
+        "SPINNER": "载入中",
+        "ANIMATION": "动画",
+        "DROPDOWN": "下拉",
+        "PANEL": "面板",
+        "PORTLET": "面板集合",
+        "GRID": "网格",
+        "GRID_MASONRY": "网格集合",
+        "TYPO": "排版",
+        "FONT_ICON": "字体图标",
+        "WEATHER_ICON": "天气图标"
+      },
+      "form": {
+        "FORM": "表单",
+        "STANDARD": "标准",
+        "EXTENDED": "扩展",
+        "VALIDATION": "校验",
+        "WIZARD": "向导"
+      },
+      "chart": {
+        "CHART": "图表",
+        "FLOT": "Flot",
+        "RADIAL": "Radial"
+      },
+      "table": {
+        "TABLE": "表格",
+        "STANDARD": "标准",
+        "EXTENDED": "扩展",
+        "DATATABLE": "数据表"
+      },
+      "map": {
+        "MAP": "地图",
+        "GOOGLE": "Google地图",
+        "VECTOR": "矢量地图"
+      },
+      "extra": {
+        "EXTRA": "额外",
+        "MAILBOX": "信箱",
+        "TIMELINE": "时间表",
+        "CALENDAR": "日历",
+        "INVOICE": "发票",
+        "SEARCH": "搜索"
+      },
+      "pages": {
+        "PAGES": "页面",
+        "LOGIN": "登录",
+        "REGISTER": "注册",
+        "RECOVER": "忘记口令",
+        "PROFILE": "账户资料",
+        "LOCK": "锁定",
+        "STARTER": "开始模版"
+      }
+    }
+  }
+}
