@@ -1,4 +1,12 @@
 {
+    "topMenu": {
+        "HOME": "首页",
+        "CASESTUDY": "成功案例",
+        "ABOUTUS": "关于我们",
+        "CONTACTUS": "联系我们",
+        "SIGNIN": "登录",
+        "REGISTER": "注册"
+    },
     "sidebarMenu": {
         "CUSTOMER": "客户",
         "MEDIA": "媒体",

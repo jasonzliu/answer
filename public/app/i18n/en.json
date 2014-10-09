@@ -1,4 +1,12 @@
 {
+  "topMenu": {
+      "HOME": "Home",
+      "CASESTUDY": "Case Study",
+      "ABOUTUS": "About Us",
+      "CONTACTUS": "Contact Us",
+      "SIGNIN": "Sign In",
+      "REGISTER": "Regsiter"
+  },
   "sidebarMenu": {
       "CUSTOMER": "Customer",
       "MEDIA": "Media",
