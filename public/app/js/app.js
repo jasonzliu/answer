@@ -1917,6 +1917,45 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$location', '$http
             .success(function(items) {*/
                 $rootScope.menuItems = [
                     {
+                        "text": "Customer",
+                        "sref": "app.template",
+                        "icon": "icon-speedometer",
+                        "translate": "sidebarMenu.CUSTOMER",
+                        "submenu": [
+                            {"text": "Sub1",       "sref": "app.template", "translate": "sidebarMenu.SUB1" },
+                            {"text": "Sub2", "sref": "app.template", "translate": "sidebarMenu.SUB2" }]
+                    },
+                    {
+                        "text": "Media",
+                        "sref": "app.template",
+                        "icon": "icon-speedometer",
+                        "translate": "sidebarMenu.MEDIA",
+                        "submenu": [
+                            {"text": "Sub1",       "sref": "app.template", "translate": "sidebarMenu.SUB1" },
+                            {"text": "Sub2", "sref": "app.template", "translate": "sidebarMenu.SUB2" },
+                            {"text": "Sub3", "sref": "app.template", "translate": "sidebarMenu.SUB3" }]
+                    },
+                    {
+                        "text": "Campaign",
+                        "sref": "app.template",
+                        "icon": "icon-speedometer",
+                        "translate": "sidebarMenu.CAMPAIGN",
+                        "submenu": [
+                            {"text": "Sub1",       "sref": "app.template", "translate": "sidebarMenu.SUB1" },
+                            {"text": "Sub2", "sref": "app.template", "translate": "sidebarMenu.SUB2" },
+                            {"text": "Sub3", "sref": "app.template", "translate": "sidebarMenu.SUB3" }]
+                    },
+                    {
+                        "text": "Product",
+                        "sref": "app.template",
+                        "icon": "icon-speedometer",
+                        "translate": "sidebarMenu.PRODUCT",
+                        "submenu": [
+                            {"text": "Sub1",       "sref": "app.template", "translate": "sidebarMenu.SUB1" },
+                            {"text": "Sub2", "sref": "app.template", "translate": "sidebarMenu.SUB2" }]
+
+                    },
+                    {
                         "text": "Main Navigation",
                         "heading": "true",
                         "translate": "sidebar.heading.HEADER"

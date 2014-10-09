@@ -1,4 +1,13 @@
 {
+  "sidebarMenu": {
+      "CUSTOMER": "Customer",
+      "MEDIA": "Media",
+      "CAMPAIGN": "Campaign",
+      "PRODUCT": "Product",
+      "SUB1": "Sub Menu 1",
+      "SUB2": "Sub Menu 2",
+      "SUB3": "Sub Menu 3"
+  },
   "dashboard": {
     "WELCOME": "Welcome to {{appName}}"
   },

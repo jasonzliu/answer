@@ -1,4 +1,13 @@
 {
+    "sidebarMenu": {
+        "CUSTOMER": "客户",
+        "MEDIA": "媒体",
+        "CAMPAIGN": "营销",
+        "PRODUCT": "产品",
+        "SUB1": "子菜单1",
+        "SUB2": "子菜单2",
+        "SUB3": "子菜单3"
+    },
   "dashboard": {
     "WELCOME": "欢迎来到 {{appName}}"
   },
