@@ -1954,8 +1954,8 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$location', '$http
                             {"text": "Sub1",       "sref": "app.template", "translate": "sidebarMenu.SUB1" },
                             {"text": "Sub2", "sref": "app.template", "translate": "sidebarMenu.SUB2" }]
 
-                    },
-                    {
+                    }
+                    /*,{
                         "text": "Main Navigation",
                         "heading": "true",
                         "translate": "sidebar.heading.HEADER"
@@ -2079,7 +2079,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$location', '$http
                         "sref": "app.documentation",
                         "icon": "icon-graduation",
                         "translate": "sidebar.nav.DOCUMENTATION"
-                    }
+                    }*/
                 ]
                 ;
 /*
