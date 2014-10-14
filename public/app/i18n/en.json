@@ -8,13 +8,17 @@
       "REGISTER": "Regsiter"
   },
   "sidebarMenu": {
-      "CUSTOMER": "Customer",
-      "MEDIA": "Media",
-      "CAMPAIGN": "Campaign",
-      "PRODUCT": "Product",
+      "CONSULTINGSERVICE": "Consulting Service",
+      "CUSTOMER": "Customer-Centric",
+      "MEDIA": "Media-Centric",
+      "CAMPAIGN": "Campaign-Centric",
+      "PRODUCTC": "Product-Centric",
       "SUB1": "Sub Menu 1",
       "SUB2": "Sub Menu 2",
-      "SUB3": "Sub Menu 3"
+      "SUB3": "Sub Menu 3",
+      "PRODUCT": "Product",
+      "CAMPAIGNPERFORMANCE": "Campaign Performance",
+      "MMO": "Marketing Mix Optimization"
   },
   "dashboard": {
     "WELCOME": "Welcome to {{appName}}"

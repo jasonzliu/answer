@@ -8,13 +8,17 @@
         "REGISTER": "注册"
     },
     "sidebarMenu": {
-        "CUSTOMER": "客户",
-        "MEDIA": "媒体",
-        "CAMPAIGN": "营销",
-        "PRODUCT": "产品",
+        "CONSULTINGSERVICE": "咨询服务",
+        "CUSTOMER": "客户分析",
+        "MEDIA": "媒体分析",
+        "CAMPAIGN": "营销分析",
+        "PRODUCTC": "产品分析",
         "SUB1": "子菜单1",
         "SUB2": "子菜单2",
-        "SUB3": "子菜单3"
+        "SUB3": "子菜单3",
+        "PRODUCT": "分析产品",
+        "CAMPAIGNPERFORMANCE": "营销活动绩效",
+        "MMO": "广告投资优化"
     },
   "dashboard": {
     "WELCOME": "欢迎来到 {{appName}}"

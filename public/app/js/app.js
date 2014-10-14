@@ -1917,6 +1917,11 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$location', '$http
             .success(function(items) {*/
                 $rootScope.menuItems = [
                     {
+                        "text": "Consulting Service",
+                        "heading": "true",
+                        "translate": "sidebarMenu.CONSULTINGSERVICE"
+                    },
+                    {
                         "text": "Customer",
                         "sref": "app.template",
                         "icon": "icon-speedometer",
@@ -1949,12 +1954,35 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$location', '$http
                         "text": "Product",
                         "sref": "app.template",
                         "icon": "icon-speedometer",
-                        "translate": "sidebarMenu.PRODUCT",
+                        "translate": "sidebarMenu.PRODUCTC",
                         "submenu": [
                             {"text": "Sub1",       "sref": "app.template", "translate": "sidebarMenu.SUB1" },
                             {"text": "Sub2", "sref": "app.template", "translate": "sidebarMenu.SUB2" }]
 
-                    }
+                    },
+                    {
+                        "text": "Product",
+                        "heading": "true",
+                        "translate": "sidebarMenu.PRODUCT"
+                    },
+                    {
+                        "text": "Campaign Performance",
+                        "sref": "app.template",
+                        "icon": "icon-speedometer",
+                        "translate": "sidebarMenu.CAMPAIGNPERFORMANCE",
+                        "submenu": [
+                            {"text": "Sub1",       "sref": "app.template", "translate": "sidebarMenu.SUB1" },
+                            {"text": "Sub2", "sref": "app.template", "translate": "sidebarMenu.SUB2" }]
+                    },
+                    {
+                        "text": "Marketing Mix Optimization",
+                        "sref": "app.template",
+                        "icon": "icon-speedometer",
+                        "translate": "sidebarMenu.MMO",
+                        "submenu": [
+                            {"text": "Sub1",       "sref": "app.template", "translate": "sidebarMenu.SUB1" },
+                            {"text": "Sub2", "sref": "app.template", "translate": "sidebarMenu.SUB2" }]
+                    },
                     /*,{
                         "text": "Main Navigation",
                         "heading": "true",
