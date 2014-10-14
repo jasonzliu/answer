@@ -83,6 +83,13 @@ App.config(['$stateProvider','$urlRouterProvider', '$controllerProvider', '$comp
                 controller: 'AppController',
                 resolve: resolveFor('fastclick', 'modernizr', 'icons', 'screenfull', 'animo', 'sparklines', 'slimscroll', 'store', 'classyloader', 'toaster', 'csspiner')
             })
+            .state('app.customer', {
+                url: '/cs/customer',
+                title: 'Customer',
+                templateUrl: basepath('customer.html'),
+                resolve: resolveFor('bwizard')
+                //controller: 'customerController'
+            })
             .state('app.dashboard', {
                 url: '/dashboard',
                 title: 'Dashboard',
@@ -1923,7 +1930,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$location', '$http
                     },
                     {
                         "text": "Customer",
-                        "sref": "app.template",
+                        "sref": "app.customer",
                         "icon": "icon-speedometer",
                         "translate": "sidebarMenu.CUSTOMER",
                         "submenu": [
@@ -1982,7 +1989,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$location', '$http
                         "submenu": [
                             {"text": "Sub1",       "sref": "app.template", "translate": "sidebarMenu.SUB1" },
                             {"text": "Sub2", "sref": "app.template", "translate": "sidebarMenu.SUB2" }]
-                    },
+                    }
                     /*,{
                         "text": "Main Navigation",
                         "heading": "true",
