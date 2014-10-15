@@ -20,6 +20,10 @@
       "CAMPAIGNPERFORMANCE": "Campaign Performance",
       "MMO": "Marketing Mix Optimization"
   },
+  "customer":{
+      "PROGRESS": "Progress",
+      "TIMELINE": "Time Line"
+  },
   "dashboard": {
     "WELCOME": "Welcome to {{appName}}"
   },

@@ -20,6 +20,10 @@
         "CAMPAIGNPERFORMANCE": "营销活动绩效",
         "MMO": "广告投资优化"
     },
+    "customer":{
+        "PROGRESS": "进度",
+        "TIMELINE": "交互"
+    },
   "dashboard": {
     "WELCOME": "欢迎来到 {{appName}}"
   },
