@@ -1701,7 +1701,6 @@ App.controller('mmoController', function($scope){
     $scope.campaign = {};
 
     function reset(){
-        $scope.tv = 50;
         $scope.public.tv = 50;
         $scope.public.movie = 60;
         $scope.public.radio = 55;
@@ -1731,6 +1730,12 @@ App.controller('mmoController', function($scope){
 
     reset();
     $scope.reset = reset;
+    $scope.apply = function (){
+        console.log('apply!!!');
+    };
+    $scope.optimize = function(){
+        console.log('optimize!!!');
+    };
 
     $scope.options = {
         'from': 0,

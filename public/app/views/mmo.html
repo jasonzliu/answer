@@ -186,6 +186,7 @@
                         <div class="row">
                             <div class="panel panel-default col-md-6">
                                 <div class="panel-heading">大众媒体
+                                    -- 总计：${{public.tv + public.movie + public.magzine + public.radio + public.paper}} K
                                 </div>
                                 <div class="panel-body">
                                     <table class="col-md-12 table">
@@ -194,7 +195,7 @@
                                                 <span>电视: </span>
                                             </td>
                                             <td class="col-md-4">
-                                                <span>$</span><input type="text" ng-model="public.tv" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="public.tv" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td class="col-md-6">
                                                 <input ng-model="public.tv" type="text" id="mySlider31" slider options="options" />
@@ -205,7 +206,7 @@
                                                 <span>电影: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="public.movie" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="public.movie" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="public.movie" type="text" id="mySlider32" slider options="options" />
@@ -216,7 +217,7 @@
                                                 <span>广播: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="public.radio" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="public.radio" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="public.radio" type="text" id="mySlider33" slider options="options" />
@@ -227,7 +228,7 @@
                                                 <span>杂志: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="public.magzine" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="public.magzine" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="public.magzine" type="text" id="mySlider34" slider options="options" />
@@ -238,7 +239,7 @@
                                                 <span>报纸: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="public.paper" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="public.paper" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="public.paper" type="text" id="mySlider35" slider options="options" />
@@ -248,7 +249,9 @@
                                 </div>
                             </div>
                             <div class="panel panel-default col-md-6">
-                                <div class="panel-heading">直邮媒体</div>
+                                <div class="panel-heading">直邮媒体
+                                    -- 总计：${{dm.mail + dm.call + dm.discountCard + dm.door + dm.category}} K
+                                </div>
                                 <div class="panel-body">
                                     <table class="col-md-12 table">
                                         <tr>
@@ -256,7 +259,7 @@
                                                 <span>直邮: </span>
                                             </td>
                                             <td class="col-md-4">
-                                                <span>$</span><input type="text" ng-model="dm.mail" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="dm.mail" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td class="col-md-6">
                                                 <input ng-model="dm.mail" type="text" id="mySlider11" slider options="options" />
@@ -267,7 +270,7 @@
                                                 <span>电话: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="dm.call" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="dm.call" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="dm.call" type="text" id="mySlider12" slider options="options" />
@@ -278,7 +281,7 @@
                                                 <span>打折卡: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="dm.discountCard" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="dm.discountCard" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="dm.discountCard" type="text" id="mySlider13" slider options="options" />
@@ -289,7 +292,7 @@
                                                 <span>上门促销: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="dm.door" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="dm.door" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="dm.door" type="text" id="mySlider14" slider options="options" />
@@ -300,7 +303,7 @@
                                                 <span>产品目录: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="dm.category" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="dm.category" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="dm.category" type="text" id="mySlider15" slider options="options" />
@@ -310,7 +313,9 @@
                                 </div>
                             </div>
                             <div class="panel panel-default col-md-6">
-                                <div class="panel-heading">电子媒体</div>
+                                <div class="panel-heading">电子媒体
+                                    -- 总计：${{eMedia.website + eMedia.search + eMedia.email}} K
+                                </div>
                                 <div class="panel-body">
                                     <table class="col-md-12 table">
                                         <tr>
@@ -318,7 +323,7 @@
                                                 <span>网站: </span>
                                             </td>
                                             <td class="col-md-4">
-                                                <span>$</span><input type="text" ng-model="eMedia.website" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="eMedia.website" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td class="col-md-6">
                                                 <input ng-model="eMedia.website" type="text" id="mySlider1" slider options="options" />
@@ -329,7 +334,7 @@
                                                 <span>搜索引擎: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="eMedia.search" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="eMedia.search" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="eMedia.search" type="text" id="mySlider2" slider options="options" />
@@ -340,7 +345,7 @@
                                                 <span>电子邮件: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="eMedia.email" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="eMedia.email" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="eMedia.email" type="text" id="mySlider3" slider options="options" />
@@ -350,7 +355,9 @@
                                 </div>
                             </div>
                             <div class="panel panel-default col-md-6">
-                                <div class="panel-heading">社交媒体</div>
+                                <div class="panel-heading">社交媒体
+                                    -- 总计：${{socialMedia.bbs + socialMedia.qq + socialMedia.blog + socialMedia.facebook}} K
+                                </div>
                                 <div class="panel-body">
                                     <table class="col-md-12 table">
                                         <tr>
@@ -358,7 +365,7 @@
                                                 <span>论坛: </span>
                                             </td>
                                             <td class="col-md-4">
-                                                <span>$</span><input type="text" ng-model="socialMedia.bbs" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="socialMedia.bbs" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td class="col-md-6">
                                                 <input ng-model="socialMedia.bbs" type="text" id="mySlider41" slider options="options" />
@@ -369,7 +376,7 @@
                                                 <span>QQ/微信: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="socialMedia.qq" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="socialMedia.qq" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="socialMedia.qq" type="text" id="mySlider42" slider options="options" />
@@ -380,7 +387,7 @@
                                                 <span>博客/微博: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="socialMedia.blog" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="socialMedia.blog" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="socialMedia.blog" type="text" id="mySlider43" slider options="options" />
@@ -391,7 +398,7 @@
                                                 <span>脸书: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="socialMedia.facebook" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="socialMedia.facebook" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="socialMedia.facebook" type="text" id="mySlider44" slider options="options" />
@@ -402,7 +409,9 @@
                             </div>
 
                             <div class="panel panel-default col-md-6">
-                                <div class="panel-heading">营销活动</div>
+                                <div class="panel-heading">营销活动
+                                    -- 总计：${{campaign.sports + campaign.concert + campaign.exhibition + campaign.conference}} K
+                                </div>
                                 <div class="panel-body">
                                     <table class="col-md-12 table">
                                         <tr>
@@ -410,7 +419,7 @@
                                                 <span>运动会: </span>
                                             </td>
                                             <td class="col-md-4">
-                                                <span>$</span><input type="text" ng-model="campaign.sports" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="campaign.sports" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td class="col-md-6">
                                                 <input ng-model="campaign.sports" type="text" id="mySlider51" slider options="options" />
@@ -421,7 +430,7 @@
                                                 <span>演唱会: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="campaign.concert" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="campaign.concert" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="campaign.concert" type="text" id="mySlider52" slider options="options" />
@@ -432,7 +441,7 @@
                                                 <span>展览会: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="campaign.exhibition" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="campaign.exhibition" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="campaign.exhibition" type="text" id="mySlider53" slider options="options" />
@@ -443,7 +452,7 @@
                                                 <span>会议/讲座: </span>
                                             </td>
                                             <td>
-                                                <span>$</span><input type="text" ng-model="campaign.conference" class="col-md-offset-1"><span>K</span>
+                                                <span>$</span><input type="number" ng-model="campaign.conference" class="col-md-offset-1"><span>K</span>
                                             </td>
                                             <td>
                                                 <input ng-model="campaign.conference" type="text" id="mySlider54" slider options="options" />
@@ -454,14 +463,16 @@
                             </div>
 
                             <div class="panel panel-default col-md-6">
-                                <div class="panel-heading"></div>
+                                <div class="panel-heading">
+                                    总计：${{public.tv + public.movie + public.magzine + public.radio + public.paper + dm.mail + dm.call + dm.discountCard + dm.door + dm.category + eMedia.website + eMedia.search + eMedia.email + socialMedia.bbs + socialMedia.qq + socialMedia.blog + socialMedia.facebook + campaign.sports + campaign.concert + campaign.exhibition + campaign.conference }} K
+                                </div>
                                 <div class="panel-body">
                                     <div class="pull-right">
-                                        <button class="btn-primary">重    置</button>
+                                        <button class="btn-primary" ng-click="reset()">重    置</button>
                                         <br/><br/>
-                                        <button class="btn-primary">应    用</button>
+                                        <button class="btn-primary" ng-click="apply()">应    用</button>
                                         <br/><br/>
-                                        <button class="btn-primary">自动优化</button>
+                                        <button class="btn-primary" ng-click="optimize()">自动优化</button>
                                     </div>
                                 </div>
                             </div>
