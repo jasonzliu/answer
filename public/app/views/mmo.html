@@ -1,0 +1,475 @@
+    <div class="col-lg-12">
+        <!-- START panel-->
+
+            <div class="panel-body">
+                <tabset>
+                    <tab heading="{{ 'mmo.DATASUMMARY' | translate}}">
+                        <div class="row">
+                            <label class="col-sm-2 control-label">时间单位</label>
+                            <div class="col-sm-10">
+                                <label class="radio-inline c-radio">
+                                    <input id="inlineradio1" type="radio" name="i-radio" value="day" disabled />
+                                    <span class="fa fa-circle"></span>日</label>
+                                <label class="radio-inline c-radio">
+                                    <input id="inlineradio2" type="radio" name="i-radio" value="week" disabled checked="checked"/>
+                                    <span class="fa fa-circle"></span>周</label>
+                                <label class="radio-inline c-radio">
+                                    <input id="inlineradio3" type="radio" name="i-radio" value="month" disabled/>
+                                    <span class="fa fa-circle"></span>月</label>
+                                <label class="radio-inline c-radio">
+                                    <input id="inlineradio４" type="radio" name="i-radio" value="season" disabled/>
+                                    <span class="fa fa-circle"></span>季</label>
+
+                                <label class="radio-inline c-radio">
+                                    <input id="inlineradio５" type="radio" name="i-radio" value="year" disabled/>
+                                    <span class="fa fa-circle"></span>年</label>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-2 control-label">时间跨度</label>
+                            <div class="col-sm-10">
+                                <span>35　周</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-2 control-label">广告媒体</label>
+                            <div class="col-sm-1"><span>大众媒体</span></div>
+                            <div class="col-sm-2">
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>电视</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled class="needsclick" />
+                                        <span class="fa fa-check"></span>电影</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>广播</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled class="needsclick" />
+                                        <span class="fa fa-check"></span>杂志</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>报纸</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-1"><span>直邮媒体</span></div>
+                            <div class="col-sm-2">
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>直邮</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>电话</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled class="needsclick" />
+                                        <span class="fa fa-check"></span>打折卡</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>上门促销</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled class="needsclick" />
+                                        <span class="fa fa-check"></span>产品目录</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-1"><span>电子媒体</span></div>
+                            <div class="col-sm-2">
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>网站</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>搜索引擎</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled class="needsclick" />
+                                        <span class="fa fa-check"></span>电子邮件</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-1"><span>社交媒体</span></div>
+                            <div class="col-sm-2">
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>论坛</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled class="needsclick" />
+                                        <span class="fa fa-check"></span>微信/QQ</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>博客/微博</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled class="needsclick" />
+                                        <span class="fa fa-check"></span>脸书</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-1"><span>营销活动</span></div>
+                            <div class="col-sm-2">
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled class="needsclick" />
+                                        <span class="fa fa-check"></span>运动会</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>演唱会</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled checked class="needsclick" />
+                                        <span class="fa fa-check"></span>展览会</label>
+                                </div>
+                                <div class="checkbox c-checkbox needsclick">
+                                    <label disabled class="needsclick">
+                                        <input type="checkbox" value="" disabled class="needsclick" />
+                                        <span class="fa fa-check"></span>会议/讲座</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-2 control-label">数据图形</label>
+                            <div class="col-sm-10">
+
+                            </div></div>
+                    </tab>
+                    <tab heading="{{ 'mmo.MODALSUMMARY' | translate}}">
+                    </tab>
+                    <tab heading="{{ 'mmo.INVESTMENTDECOMPOSITION' | translate}}">
+                        <div class="row">
+                            <div class="col-sm-3">时间跨度： 35 周</div>
+                            <div class="col-sm-3">投资渠道： 8 个</div>
+                            <div class="col-sm-3">总投资额： 360 万</div>
+                            <div class="col-sm-3">总销售额： 4800 万</div>
+                        </div>
+                    </tab>
+                    <tab heading="{{ 'mmo.ROIANALYSIS' | translate}}">
+                        <div class="row">
+                            <div class="col-sm-3">时间跨度： 22 周</div>
+                            <div class="col-sm-3">投资渠道： 8 个</div>
+                            <div class="col-sm-3">总投资额： 280 万</div>
+                            <div class="col-sm-3">总销售额： 4200 万</div>
+                        </div>
+                    </tab>
+                    <tab heading="{{ 'mmo.INVESTMENTOPTIMIZATION' | translate}}">
+                        <div class="row">
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading">大众媒体
+                                </div>
+                                <div class="panel-body">
+                                    <table class="col-md-12 table">
+                                        <tr>
+                                            <td class="col-md-2">
+                                                <span>电视: </span>
+                                            </td>
+                                            <td class="col-md-4">
+                                                <span>$</span><input type="text" ng-model="public.tv" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td class="col-md-6">
+                                                <input ng-model="public.tv" type="text" id="mySlider31" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>电影: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="public.movie" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="public.movie" type="text" id="mySlider32" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>广播: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="public.radio" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="public.radio" type="text" id="mySlider33" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>杂志: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="public.magzine" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="public.magzine" type="text" id="mySlider34" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>报纸: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="public.paper" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="public.paper" type="text" id="mySlider35" slider options="options" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading">直邮媒体</div>
+                                <div class="panel-body">
+                                    <table class="col-md-12 table">
+                                        <tr>
+                                            <td class="col-md-2">
+                                                <span>直邮: </span>
+                                            </td>
+                                            <td class="col-md-4">
+                                                <span>$</span><input type="text" ng-model="dm.mail" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td class="col-md-6">
+                                                <input ng-model="dm.mail" type="text" id="mySlider11" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>电话: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="dm.call" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="dm.call" type="text" id="mySlider12" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>打折卡: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="dm.discountCard" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="dm.discountCard" type="text" id="mySlider13" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>上门促销: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="dm.door" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="dm.door" type="text" id="mySlider14" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>产品目录: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="dm.category" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="dm.category" type="text" id="mySlider15" slider options="options" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading">电子媒体</div>
+                                <div class="panel-body">
+                                    <table class="col-md-12 table">
+                                        <tr>
+                                            <td class="col-md-2">
+                                                <span>网站: </span>
+                                            </td>
+                                            <td class="col-md-4">
+                                                <span>$</span><input type="text" ng-model="eMedia.website" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td class="col-md-6">
+                                                <input ng-model="eMedia.website" type="text" id="mySlider1" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>搜索引擎: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="eMedia.search" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="eMedia.search" type="text" id="mySlider2" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>电子邮件: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="eMedia.email" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="eMedia.email" type="text" id="mySlider3" slider options="options" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading">社交媒体</div>
+                                <div class="panel-body">
+                                    <table class="col-md-12 table">
+                                        <tr>
+                                            <td class="col-md-2">
+                                                <span>论坛: </span>
+                                            </td>
+                                            <td class="col-md-4">
+                                                <span>$</span><input type="text" ng-model="socialMedia.bbs" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td class="col-md-6">
+                                                <input ng-model="socialMedia.bbs" type="text" id="mySlider41" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>QQ/微信: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="socialMedia.qq" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="socialMedia.qq" type="text" id="mySlider42" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>博客/微博: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="socialMedia.blog" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="socialMedia.blog" type="text" id="mySlider43" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>脸书: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="socialMedia.facebook" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="socialMedia.facebook" type="text" id="mySlider44" slider options="options" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading">营销活动</div>
+                                <div class="panel-body">
+                                    <table class="col-md-12 table">
+                                        <tr>
+                                            <td class="col-md-2">
+                                                <span>运动会: </span>
+                                            </td>
+                                            <td class="col-md-4">
+                                                <span>$</span><input type="text" ng-model="campaign.sports" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td class="col-md-6">
+                                                <input ng-model="campaign.sports" type="text" id="mySlider51" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>演唱会: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="campaign.concert" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="campaign.concert" type="text" id="mySlider52" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>展览会: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="campaign.exhibition" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="campaign.exhibition" type="text" id="mySlider53" slider options="options" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>会议/讲座: </span>
+                                            </td>
+                                            <td>
+                                                <span>$</span><input type="text" ng-model="campaign.conference" class="col-md-offset-1"><span>K</span>
+                                            </td>
+                                            <td>
+                                                <input ng-model="campaign.conference" type="text" id="mySlider54" slider options="options" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading"></div>
+                                <div class="panel-body">
+                                    <div class="pull-right">
+                                        <button class="btn-primary">重    置</button>
+                                        <br/><br/>
+                                        <button class="btn-primary">应    用</button>
+                                        <br/><br/>
+                                        <button class="btn-primary">自动优化</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="{{ 'mmo.INVESTMENTRETURNFORECAST' | translate}}">
+                    </tab>
+                </tabset>
+            </div>
+        <!-- END panel-->
+    </div>

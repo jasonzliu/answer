@@ -24,6 +24,14 @@
       "PROGRESS": "Progress",
       "TIMELINE": "Time Line"
   },
+    "mmo":{
+        "DATASUMMARY": "Data Summary",
+        "MODALSUMMARY":"Modal Summary",
+        "INVESTMENTDECOMPOSITION":"Investment Decomposition",
+        "ROIANALYSIS":"ROI Analysis",
+        "INVESTMENTOPTIMIZATION":"Investment Optimization",
+        "INVESTMENTRETURNFORECAST":"Investment Return Forecast"
+    },
   "dashboard": {
     "WELCOME": "Welcome to {{appName}}"
   },

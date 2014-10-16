@@ -14,7 +14,7 @@ if (typeof $ === 'undefined') { throw new Error('This application\'s JavaScript 
 // APP START
 // ----------------------------------- 
 
-var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCookies', 'pascalprecht.translate', 'ui.bootstrap', 'ui.router', 'oc.lazyLoad', 'cfp.loadingBar'])
+var App = angular.module('angle', ['ngRoute', 'ngAnimate', 'ngStorage', 'ngCookies', 'pascalprecht.translate', 'ui.bootstrap', 'ui.router', 'oc.lazyLoad', 'cfp.loadingBar', 'ngSlider' ])
     .run(["$rootScope", "$state", "$stateParams", function ($rootScope, $state, $stateParams) {
         // Set reference to access them from any scope
         $rootScope.$state = $state;
@@ -89,6 +89,13 @@ App.config(['$stateProvider','$urlRouterProvider', '$controllerProvider', '$comp
                 templateUrl: basepath('customer.html'),
                 resolve: resolveFor('bwizard')
                 //controller: 'customerController'
+            })
+            .state('app.mmo', {
+                url: '/p/mmo',
+                title: 'MMO',
+                templateUrl: basepath('mmo.html'),
+                //resolve: resolveFor('slider'),
+                controller: 'mmoController'
             })
             .state('app.dashboard', {
                 url: '/dashboard',
@@ -1686,6 +1693,52 @@ App.controller('ModalGmapController', ['$scope', '$modal', 'gmap', function ($sc
 
 }]);
 
+App.controller('mmoController', function($scope){
+    $scope.public = {};
+    $scope.dm = {};
+    $scope.eMedia = {};
+    $scope.socialMedia = {};
+    $scope.campaign = {};
+
+    function reset(){
+        $scope.tv = 50;
+        $scope.public.tv = 50;
+        $scope.public.movie = 60;
+        $scope.public.radio = 55;
+        $scope.public.magzine = 75;
+        $scope.public.paper = 78;
+
+        $scope.dm.mail = 19;
+        $scope.dm.call = 18;
+        $scope.dm.discountCard = 20;
+        $scope.dm.door = 56;
+        $scope.dm.category = 36;
+
+        $scope.eMedia.website = 60;
+        $scope.eMedia.search = 70;
+        $scope.eMedia.email = 56;
+
+        $scope.socialMedia.bbs = 56;
+        $scope.socialMedia.qq = 78;
+        $scope.socialMedia.blog = 53;
+        $scope.socialMedia.facebook = 23;
+
+        $scope.campaign.sports = 56;
+        $scope.campaign.concert = 80;
+        $scope.campaign.exhibition = 90;
+        $scope.campaign.conference= 10;
+    }
+
+    reset();
+    $scope.reset = reset;
+
+    $scope.options = {
+        'from': 0,
+        'to': 300,
+        'step': 1,
+        'dimension': 'K'
+    };
+});
 /**=========================================================
  * Module: modals.js
  * Provides a simple way to implement bootstrap modals from templates
@@ -1983,7 +2036,7 @@ App.controller('SidebarController', ['$rootScope', '$scope', '$location', '$http
                     },
                     {
                         "text": "Marketing Mix Optimization",
-                        "sref": "app.template",
+                        "sref": "app.mmo",
                         "icon": "icon-speedometer",
                         "translate": "sidebarMenu.MMO",
                         "submenu": [
