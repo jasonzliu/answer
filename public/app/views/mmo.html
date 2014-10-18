@@ -1,4 +1,53 @@
-    <div class="col-lg-12">
+<style>
+
+    .bar1 {
+        fill: steelblue;
+    }
+
+    .bar1:hover {
+        fill: brown;
+    }
+
+    .bar2 {
+        fill: #b4a644;
+    }
+
+    .bar2:hover {
+        fill: #a52c6b;
+    }
+
+    .axis {
+        font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+
+    body {
+        font: 14px
+    }
+
+    .axis path,
+
+    .line1 {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
+
+    .line2 {
+        fill: none;
+        stroke:  #b4a644
+    stroke-width: 1.5px;
+    }
+</style>
+
+<div class="col-lg-12">
         <!-- START panel-->
 
             <div class="panel-body">
@@ -161,8 +210,9 @@
                         <div class="row">
                             <label class="col-sm-2 control-label">数据图形</label>
                             <div class="col-sm-10">
-
+                                <div id="line"></div>
                             </div></div>
+
                     </tab>
                     <tab heading="{{ 'mmo.MODALSUMMARY' | translate}}">
                     </tab>
@@ -481,8 +531,10 @@
                     <tab heading="{{ 'mmo.INVESTMENTRETURNFORECAST' | translate}}">
                     </tab>
                 </tabset>
+
             </div>
         <!-- END panel-->
         <br/><br/><br/><br/>
+
     </div>
 

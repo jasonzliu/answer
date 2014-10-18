@@ -1693,7 +1693,7 @@ App.controller('ModalGmapController', ['$scope', '$modal', 'gmap', function ($sc
 
 }]);
 
-App.controller('mmoController', function($scope){
+App.controller('mmoController', function($scope, $timeout){
     $scope.public = {};
     $scope.dm = {};
     $scope.eMedia = {};
@@ -1729,6 +1729,215 @@ App.controller('mmoController', function($scope){
     }
 
     reset();
+
+var p = $timeout(function(){
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        width = 460 - margin.left - margin.right,
+        height = 300 - margin.top - margin.bottom;
+
+    var budgets = [
+        {"Week": 22, "Total": 54, "North": 24, "South1": 31, "South" : 30},
+        {"Week": 23, "Total": 60, "North": 27, "South1": 41, "South" : 33},
+        {"Week": 24, "Total": 71, "North": 35, "South1": 21, "South" : 36},
+        {"Week": 25, "Total": 72, "North": 50, "South1": 11, "South" : 22},
+        {"Week": 26, "Total": 82, "North": 42, "South1": 31, "South" : 40},
+        {"Week": 27, "Total": 90, "North": 36, "South1": 41, "South" : 54},
+        {"Week": 28, "Total": 117, "North": 57, "South1": 61, "South" : 60},
+        {"Week": 29, "Total": 129, "North": 62, "South1": 71, "South" : 67},
+        {"Week": 30, "Total": 127, "North": 65, "South1": 21, "South" : 62},
+        {"Week": 31, "Total": 105, "North": 50, "South1": 51, "South" : 55}
+    ];
+
+    addTimeLine(budgets, '预算 ($ in million)', 'line1');
+
+    function addTimeLine(data, yname, classname) {
+
+        var x = d3.scale.linear()
+            .range([0, width]);
+
+        var y = d3.scale.linear()
+            .range([height, 0]);
+
+        var color = d3.scale.category10();
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
+
+        var line = d3.svg.line()
+            .interpolate("basis")
+            .x(function (d) {
+                return x(d.Week);
+            })
+            .y(function (d) {
+                return y(d.Total);
+            });
+
+        var main = d3.select("#line").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom);
+
+        var svg = main.append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+        color.domain(d3.keys(data[0]).filter(function (key) {
+            return key !== "Week";
+        }));
+
+        var values = color.domain().map(function (name) {
+            return {
+                name: name,
+                values: data.map(function (d) {
+                    return {Week: d.Week, Total: d[name]};
+                    //return {Week: d.Week, Total: d.Total, North: d.North, South: d.South};
+                })
+            };
+        });
+
+        //x.domain(d3.extent(data, function(d) { return d.week; }));
+
+        x.domain([
+            d3.min(values, function (c) {
+                return d3.min(c.values, function (v) {
+                    return v.Week;
+                });
+            }),
+            d3.max(values, function (c) {
+                return d3.max(c.values, function (v) {
+                    return v.Week;
+                });
+            })
+        ]);
+
+        y.domain([
+            d3.min(values, function (c) {
+                return d3.min(c.values, function (v) {
+                    return v.Total;
+                });
+            }),
+            d3.max(values, function (c) {
+                return d3.max(c.values, function (v) {
+                    return v.Total;
+                });
+            })
+        ]);
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis)
+            .append("text")
+            .attr("transform", "rotate(0)")
+            .attr("x", -10)
+            .attr("y", 15)
+            .attr("dx", ".11em")
+            .style("text-anchor", "end")
+            .text("周");
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text(yname);
+
+        var value = svg.selectAll(".value")
+            .data(values)
+            .enter().append("g")
+            .attr("class", "value");
+
+        value.append("path")
+            .attr("class", classname)
+            .attr("d", function (d) {
+                return line(d.values);
+            })
+            .style("stroke", function (d) {
+                return color(d.name);
+            });
+        var tip = d3.tip()
+            .attr('class', 'd3-tip')
+            .offset([-10, 0])
+            .html(function (d) {
+                var budgets = [
+                    {"Week": 22, "Total": 54, "North": 24, "South" : 30},
+                    {"Week": 23, "Total": 60, "North": 27, "South" : 33},
+                    {"Week": 24, "Total": 71, "North": 35, "South" : 36},
+                    {"Week": 25, "Total": 72, "North": 50, "South" : 22},
+                    {"Week": 26, "Total": 82, "North": 42, "South" : 40},
+                    {"Week": 27, "Total": 90, "North": 36, "South" : 54},
+                    {"Week": 28, "Total": 117, "North": 57, "South" : 60},
+                    {"Week": 29, "Total": 129, "North": 62, "South" : 67},
+                    {"Week": 30, "Total": 127, "North": 65, "South" : 62},
+                    {"Week": 31, "Total": 105, "North": 50, "South" : 55}
+                ];
+                var sales = [
+
+                    {"Week": 22, "Total": 792, "North": 400, "South" : 392},
+                    {"Week": 23, "Total": 1047, "North": 527, "South" : 520},
+                    {"Week": 24, "Total": 1706, "North": 903, "South" : 803},
+                    {"Week": 25, "Total": 3341, "North": 1241, "South" : 2100},
+                    {"Week": 26, "Total": 5026, "North": 1546, "South" : 3480},
+                    {"Week": 27, "Total": 6378, "North": 2245, "South" : 4133},
+                    {"Week": 28, "Total": 8204, "North": 2405, "South" : 5799},
+                    {"Week": 29, "Total": 10804, "North": 4080, "South" : 6724},
+                    {"Week": 30, "Total": 13735, "North": 6769, "South" : 6966},
+                    {"Week": 31, "Total": 16673, "North": 7245, "South" : 9428}
+                ];
+                var budget = _.where(budgets, {"Week": d.Week})[0];
+                var sales = _.where(sales, {"Week": d.Week})[0];
+                var obj = d.Total < 200? budget : sales;
+
+                return "<table style='background-color: lightgrey; width:200px;'><tr style='height: 20px'><td>Week</td><td>Total</td><td>North</td><td>South</td></tr><tr style='height: 20px'><td>"
+                    + d.Week +
+                    "</td><td>"
+                    + d.Total +
+                    "</td><td>"
+                    + obj.North +
+                    "</td><td>"
+                    + obj.South +
+                    "</td></tr></table>"
+            });
+        svg.call(tip);
+
+        svg.selectAll(".circle")
+            .data(values[0].values)
+            .enter()
+            .append("circle")
+            .attr("class", "circle")
+            .attr("cx", function (d, i) {
+                return x(d.Week);
+            })
+            .attr("cy", function (d, i) {
+                return y(d.Total);
+            })
+            .attr("r", 3)
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide);
+
+        value.append("text")
+            .datum(function (d) {
+                return {name: d.name, value: d.values[d.values.length - 1]};
+            })
+            .attr("transform", function (d) {
+                return "translate(" + x(d.value.Week) + "," + y(d.value.Total) + ")";
+            })
+            .attr("x", -6)
+            .attr("y", -6)
+            .attr("dy", ".35em")
+            .text(function(d){return d.name});
+    }
+
+}, 1000);
+
+
     $scope.reset = reset;
     $scope.apply = function (){
         console.log('apply!!!');
