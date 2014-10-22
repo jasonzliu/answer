@@ -1732,9 +1732,9 @@ App.controller('mmoController', function($scope, $timeout){
     reset();
 
 var p = $timeout(function(){
-    var margin = {top: 20, right: 20, bottom: 30, left: 100},
+    var margin = {top: 30, right: 20, bottom: 30, left: 40},
         width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        height = 400 - margin.top - margin.bottom;
 
     var parseDate = d3.time.format("%m/%d/%Y").parse;
 
@@ -1746,7 +1746,8 @@ var p = $timeout(function(){
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .orient("bottom");
+        .orient("bottom")
+        .tickFormat(d3.time.format("%m/%d/%Y"));
 
     var yAxis = d3.svg.axis()
         .scale(y)
@@ -1765,7 +1766,7 @@ var p = $timeout(function(){
     d3.csv("data/sale.csv", function(error, data) {
         data.forEach(function(d) {
             d.date = parseDate(d.date);
-            d.sale = d.sale/1000;
+            d.sale = d.sale/1000000;
         });
 
         x.domain(d3.extent(data, function(d) { return d.date; }));
@@ -1784,12 +1785,21 @@ var p = $timeout(function(){
             .attr("y", 6)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("Total Sale ($)");
+            .text("销售 (百万美元)")
+            .style("font-size", "12px");
 
         svg.append("path")
             .datum(data)
             .attr("class", "line")
             .attr("d", line);
+
+        svg.append("text")
+            .attr("x", (width / 2))
+            .attr("y", 0 - (margin.top / 2))
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text("销售总计");
     });
 
 }, 1000);
