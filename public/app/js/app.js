@@ -398,7 +398,7 @@ App.config(['$stateProvider','$urlRouterProvider', '$controllerProvider', '$comp
         prefix : 'app/i18n/',
         suffix : '.json'
     });
-    $translateProvider.preferredLanguage('en');
+    $translateProvider.preferredLanguage('cn');
     $translateProvider.useLocalStorage();
 
 }]).config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
@@ -1621,12 +1621,13 @@ App.controller('AppController',
                 listIsOpen: false,
                 // list of available languages
                 available: {
-                    'en':       'English',
+                    'cn':       '简体中文',
+                    'en':       'English'
                     //'es_AR':    'Español',
-                    'cn':       '简体中文'
                 },
                 // display always the current ui language
                 init: function () {
+                    $translate.proposedLanguage('cn');
                     var proposedLanguage = $translate.proposedLanguage() || $translate.use();
                     var preferredLanguage = $translate.preferredLanguage(); // we know we have set a preferred one in app.config
                     $scope.language.selected = $scope.language.available[ (proposedLanguage || preferredLanguage) ];
