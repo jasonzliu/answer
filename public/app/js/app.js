@@ -1732,7 +1732,7 @@ App.controller('mmoController', function($scope, $timeout){
     reset();
 
 var p = $timeout(function(){
-    var margin = {top: 30, right: 20, bottom: 30, left: 100},
+    var margin = {top: 30, right: 20, bottom: 70, left: 100},
         width = 960 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
     var parseDate = d3.time.format("%m/%d/%Y").parse;
@@ -1884,6 +1884,19 @@ var p = $timeout(function(){
                 .attr("d", function(d) { return line(d.values); })
                 .style("stroke", function(d) { return color(d.name); });
 
+            var legendSpace = width/cities.length; // spacing for legend // ******
+            //var i = 0;
+
+            city.append("text") // *******
+                .attr("x", function(d, i){
+                    return (legendSpace/2)+ i * legendSpace}) // spacing // ****})
+                .attr("y", height + (margin.bottom/2)+ 5) // *******
+                .attr("class", "legend") // style the legend // *******
+                .style("fill", function(d) { // dynamic colours // *******
+                    return d.color = color(d.name); }) // *******
+                .text(function(d){
+                    return d.name}); // *******
+
             svg.append("text")
                 .attr("x", (width / 2))
                 .attr("y", 0 - (margin.top / 2))
@@ -1891,12 +1904,13 @@ var p = $timeout(function(){
                 .style("font-size", "16px")
                 .style("text-decoration", "underline")
                 .text("每周开销");
-        });
+
+            });
     }
 
     svgSpending();
 
-}, 1000);
+}, 300);
 
 
     $scope.reset = reset;
