@@ -1736,6 +1736,7 @@ var p = $timeout(function(){
         width = 960 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
     var parseDate = d3.time.format("%m/%d/%Y").parse;
+    var formatCurrency = function(d) { return "$" + d3.format("0,000")(d) };
 
     function svgTotalSales(){
 
@@ -1752,7 +1753,8 @@ var p = $timeout(function(){
 
         var yAxis = d3.svg.axis()
             .scale(y)
-            .orient("left");
+            .orient("left")
+            .tickFormat(formatCurrency);
 
         var line = d3.svg.line()
             .x(function(d) { return x(d.date); })
@@ -1767,11 +1769,10 @@ var p = $timeout(function(){
         d3.csv("data/total_sale.csv", function(error, data) {
             data.forEach(function(d) {
                 d.date = parseDate(d.date);
-                d.sale = d.sale/1000000;
             });
 
             x.domain(d3.extent(data, function(d) { return d.date; }));
-            y.domain(d3.extent(data, function(d) { return  d.sale; }));
+            y.domain(d3.extent(data, function(d) { return  Number(d.sale); }));
 
             svg.append("g")
                 .attr("class", "x axis")
@@ -1786,7 +1787,7 @@ var p = $timeout(function(){
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                .text("销售 (百万美元)")
+                //.text("美元")
                 .style("font-size", "12px");
 
             svg.append("path")
@@ -1822,7 +1823,8 @@ var p = $timeout(function(){
 
         var yAxis = d3.svg.axis()
             .scale(y)
-            .orient("left");
+            .orient("left")
+            .tickFormat(formatCurrency);;
 
         var line = d3.svg.line()
             .interpolate("basis")
@@ -1854,8 +1856,9 @@ var p = $timeout(function(){
             x.domain(d3.extent(data, function(d) { return d.date; }));
 
             y.domain([
-                d3.min(cities, function(c) { return d3.min(c.values, function(v) { return v.temperature; }); }),
-                d3.max(["200000"])
+                d3.min(cities, function(c) { return d3.min(c.values, function(v) { return Number(v.temperature); }); }),
+                d3.max(cities, function(c) { return d3.max(c.values, function(v) { return Number(v.temperature); }); })
+                //d3.max(["200000"])
             ]);
 
             svg.append("g")
@@ -1871,7 +1874,7 @@ var p = $timeout(function(){
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                .text("每周开销(美元)")
+                //.text("美元")
                 .style("font-size", "12px");
 
             var city = svg.selectAll(".city")
@@ -1924,7 +1927,8 @@ var p = $timeout(function(){
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("left")
-            .ticks(10);
+            .ticks(10)
+            .tickFormat(formatCurrency);;
 
         var svg = d3.select("#totalSpending").append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -1947,6 +1951,7 @@ var p = $timeout(function(){
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
+                //.text("美元")
                 .attr("dy", ".71em")
                 .style("text-anchor", "end");
 
