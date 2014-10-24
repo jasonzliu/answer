@@ -25,6 +25,7 @@
       "TIMELINE": "Time Line"
   },
     "mmo":{
+        "PROJECTSUMMARY":"Project Summary",
         "DATASUMMARY": "Data Summary",
         "MODALSUMMARY":"Modal Summary",
         "INVESTMENTDECOMPOSITION":"Investment Decomposition",

@@ -25,6 +25,7 @@
         "TIMELINE": "交互"
     },
     "mmo":{
+        "PROJECTSUMMARY":"项目综述",
         "DATASUMMARY": "数据概览",
         "MODALSUMMARY":"模型概览",
         "INVESTMENTDECOMPOSITION":"投资分解",
