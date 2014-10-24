@@ -1787,7 +1787,6 @@ var p = $timeout(function(){
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                //.text("美元")
                 .style("font-size", "12px");
 
             svg.append("path")
@@ -1824,12 +1823,12 @@ var p = $timeout(function(){
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("left")
-            .tickFormat(formatCurrency);;
+            .tickFormat(formatCurrency);
 
         var line = d3.svg.line()
             .interpolate(lineMode)
             .x(function(d) { return x(d.date); })
-            .y(function(d) { return y(d.temperature); });
+            .y(function(d) { return y(d.data); });
 
         var svg = d3.select(divId).append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -1844,11 +1843,11 @@ var p = $timeout(function(){
                 d.date = parseDate(d.date);
             });
 
-            var cities = color.domain().map(function(name) {
+            var units = color.domain().map(function(name) {
                 return {
                     name: name,
                     values: data.map(function(d) {
-                        return {date: d.date, temperature: d[name]};
+                        return {date: d.date, data: d[name]};
                     })
                 };
             });
@@ -1856,10 +1855,9 @@ var p = $timeout(function(){
             x.domain(d3.extent(data, function(d) { return d.date; }));
 
             y.domain([
-                d3.min(cities, function(c) { return d3.min(c.values, function(v) { return Number(v.temperature); }); }),
+                d3.min(units, function(c) { return d3.min(c.values, function(v) { return Number(v.data); }); }),
                 //d3.min([0]),
-                d3.max(cities, function(c) { return d3.max(c.values, function(v) { return Number(v.temperature); }); })
-                //d3.max(["200000"])
+                d3.max(units, function(c) { return d3.max(c.values, function(v) { return Number(v.data); }); })
             ]);
 
             svg.append("g")
@@ -1875,31 +1873,29 @@ var p = $timeout(function(){
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                //.text("美元")
                 .style("font-size", "12px");
 
-            var city = svg.selectAll(".city")
-                .data(cities)
+            var unit = svg.selectAll(".unit")
+                .data(units)
                 .enter().append("g")
-                .attr("class", "city");
+                .attr("class", "unit");
 
-            city.append("path")
+            unit.append("path")
                 .attr("class", "line")
                 .attr("d", function(d) { return line(d.values); })
                 .style("stroke", function(d) { return color(d.name); });
 
-            var legendSpace = width/cities.length; // spacing for legend // ******
-            //var i = 0;
+            var legendSpace = width/units.length;
 
-            city.append("text") // *******
+            unit.append("text")
                 .attr("x", function(d, i){
-                    return (legendSpace/2)+ i * legendSpace}) // spacing // ****})
-                .attr("y", height + (margin.bottom/2)+ 5) // *******
-                .attr("class", "legend") // style the legend // *******
-                .style("fill", function(d) { // dynamic colours // *******
-                    return d.color = color(d.name); }) // *******
+                    return (legendSpace/2)+ i * legendSpace})
+                .attr("y", height + (margin.bottom/2)+ 5)
+                .attr("class", "legend")
+                .style("fill", function(d) {
+                    return d.color = color(d.name); })
                 .text(function(d){
-                    return d.name}); // *******
+                    return d.name});
 
             svg.append("text")
                 .attr("x", (width / 2))
@@ -1940,8 +1936,8 @@ var p = $timeout(function(){
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         d3.csv("data/media_spending.csv", type, function(error, data) {
-            x.domain(data.map(function(d) { return d.letter; }));
-            y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+            x.domain(data.map(function(d) { return d.media; }));
+            y.domain([0, d3.max(data, function(d) { return d.spending; })]);
 
             svg.append("g")
                 .attr("class", "x axis")
@@ -1954,7 +1950,6 @@ var p = $timeout(function(){
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
-                //.text("美元")
                 .attr("dy", ".71em")
                 .style("text-anchor", "end");
 
@@ -1962,10 +1957,10 @@ var p = $timeout(function(){
                 .data(data)
                 .enter().append("rect")
                 .attr("class", "bar")
-                .attr("x", function(d) { return x(d.letter); })
+                .attr("x", function(d) { return x(d.media); })
                 .attr("width", x.rangeBand())
-                .attr("y", function(d) { return y(d.frequency); })
-                .attr("height", function(d) { return height - y(d.frequency); });
+                .attr("y", function(d) { return y(d.spending); })
+                .attr("height", function(d) { return height - y(d.spending); });
 
             svg.append("text")
                 .attr("x", (width / 2))
@@ -1978,7 +1973,7 @@ var p = $timeout(function(){
         });
 
         function type(d) {
-            d.frequency = +d.frequency;
+            d.spending = +d.spending;
             return d;
         }
     }
@@ -2051,7 +2046,7 @@ var p = $timeout(function(){
     }
 
     svgArea();
-}, 300);
+}, 500);
 
 
     $scope.reset = reset;
