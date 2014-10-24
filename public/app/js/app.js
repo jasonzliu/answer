@@ -1806,7 +1806,7 @@ var p = $timeout(function(){
     }
     svgTotalSales();
 
-    function svgWeeklySpending(){
+    function svgMultipleLines(divId, dataFile, title, lineMode){
 
         var x = d3.time.scale()
             .range([0, width]);
@@ -1827,17 +1827,17 @@ var p = $timeout(function(){
             .tickFormat(formatCurrency);;
 
         var line = d3.svg.line()
-            .interpolate("basis")
+            .interpolate(lineMode)
             .x(function(d) { return x(d.date); })
             .y(function(d) { return y(d.temperature); });
 
-        var svg = d3.select("#weeklySpending").append("svg")
+        var svg = d3.select(divId).append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.csv("data/weekly_spending.csv", function(error, data) {
+        d3.csv(dataFile, function(error, data) {
             color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date" && key !== "week"; }));
 
             data.forEach(function(d) {
@@ -1857,6 +1857,7 @@ var p = $timeout(function(){
 
             y.domain([
                 d3.min(cities, function(c) { return d3.min(c.values, function(v) { return Number(v.temperature); }); }),
+                //d3.min([0]),
                 d3.max(cities, function(c) { return d3.max(c.values, function(v) { return Number(v.temperature); }); })
                 //d3.max(["200000"])
             ]);
@@ -1906,12 +1907,14 @@ var p = $timeout(function(){
                 .attr("text-anchor", "middle")
                 .style("font-size", "16px")
                 .style("text-decoration", "underline")
-                .text("每周媒体开销");
+                .text(title);
 
             });
     }
 
-    svgWeeklySpending();
+    svgMultipleLines("#weeklySpending", "data/weekly_spending.csv", "每周媒体开销", "basis");
+
+    svgMultipleLines("#actualForecast", "data/actual_forecast.csv", "实际预测对比", "");
 
     function svgTotalSpending(){
         var x = d3.scale.ordinal()
