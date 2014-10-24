@@ -6,6 +6,10 @@
     .bar:hover {
         fill: brown;
     }
+
+    .area {
+        fill: steelblue;
+    }
     .axis path,
     .axis line {
         fill: none;
@@ -223,6 +227,12 @@
                             <div class="col-sm-3">投资渠道： 8 个</div>
                             <div class="col-sm-3">总投资额： 360 万</div>
                             <div class="col-sm-3">总销售额： 4800 万</div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-1 control-label">数据图形</label>
+                            <div class="col-sm-11">
+                                <div id="weeklySales"></div>
+                            </div>
                         </div>
                     </tab>
                     <tab heading="{{ 'mmo.ROIANALYSIS' | translate}}">
