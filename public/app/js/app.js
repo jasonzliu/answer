@@ -2096,7 +2096,7 @@ var p = $timeout(function(){
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-        d3.csv("data/weekly_spending_media.csv", function(error, data) {
+        d3.csv("data/weekly_sales_media.csv", function(error, data) {
             var labelVar = 'date';
             var varNames = d3.keys(data[0])
                 .filter(function (key) { return key !== labelVar;});
