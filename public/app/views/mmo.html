@@ -29,6 +29,16 @@
         text-anchor: middle;
     }
 
+    .point {
+        stroke: grey;
+        stroke-width: 3px;
+        opacity: 0;
+    }
+    .point:hover{
+        opacity: .5;
+    }
+
+
 </style>
 
 <div class="col-lg-12">
@@ -221,7 +231,7 @@
                             </div>
                         </div>
                     </tab>
-                    <tab heading="{{ 'mmo.INVESTMENTDECOMPOSITION' | translate}}">
+                    <tab heading="{{ 'mmo.SALESDECOMPOSITION' | translate}}">
                         <div class="row">
                             <div class="col-sm-3">时间跨度： 35 周</div>
                             <div class="col-sm-3">投资渠道： 8 个</div>
@@ -232,6 +242,12 @@
                             <label class="col-sm-1 control-label">数据图形</label>
                             <div class="col-sm-11">
                                 <div id="weeklySales"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-1 control-label"></label>
+                            <div class="col-sm-11">
+                                <div id="weeklyMedia"></div>
                             </div>
                         </div>
                     </tab>
