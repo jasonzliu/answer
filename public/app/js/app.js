@@ -2306,7 +2306,7 @@ var p = $timeout(function(){
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         d3.csv("data/stackedbar.csv", function(error, data) {
-            color.domain(d3.keys(data[0]).filter(function(key) { return key !== "State"; }));
+            color.domain(d3.keys(data[0]));
 
             data.forEach(function(d) {
                 var y0 = 0;
@@ -2316,7 +2316,7 @@ var p = $timeout(function(){
 
             data.sort(function(a, b) { return b.total - a.total; });
 
-            x.domain(data.map(function(d) { return d.State; }));
+            //x.domain(data.map(function(d) { return d.State; }));
             y.domain([0, d3.max(data, function(d) { return d.total; })]);
 
             /*svg.append("g")
@@ -2338,12 +2338,12 @@ var p = $timeout(function(){
                 .data(data)
                 .enter().append("g")
                 .attr("class", "g")
-                .attr("transform", function(d) { return "translate(" + x(d.State) + ",0)"; });
+                .attr("transform", function(d) { return "translate(0,0)"; });
 
             state.selectAll("rect")
                 .data(function(d) { return d.percent; })
                 .enter().append("rect")
-                .attr("width", x.rangeBand())
+                .attr("width", "200")
                 .attr("y", function(d) { return y(d.y1); })
                 .attr("height", function(d) { return y(d.y0) - y(d.y1); })
                 .style("fill", function(d) { return color(d.name); });
