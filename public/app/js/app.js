@@ -1695,6 +1695,46 @@ App.controller('ModalGmapController', ['$scope', '$modal', 'gmap', function ($sc
 }]);
 
 App.controller('mmoController', function($scope, $timeout){
+    var formatCurrency = function(d) { return "$" + d3.format("0,000")(d) };
+    $scope.formatCurrency = formatCurrency;
+    $scope.channels  = [
+        {
+            'name': '网站Banner',
+            'value': 1293763
+        },
+        {
+            'name': '直邮',
+            'value': 2993249
+        },
+        {
+            'name': '报纸',
+            'value': 117894
+        },
+        {
+            'name': '广播',
+            'value': 1912202
+        },
+        {
+            'name': '数字媒体',
+            'value': 2388505
+        },
+        {
+            'name': '有线电视',
+            'value': 1070026
+        },
+        {
+            'name': '电视15秒',
+            'value': 2338622
+        },
+        {
+            'name': '电视30秒',
+            'value': 3315000
+        }
+    ];
+
+    $scope.totalSpend = _.reduce(_.pluck($scope.channels, 'value'), function(sum, num){return sum + num});
+    $scope.totalSales = 352269858;
+
     $scope.public = {};
     $scope.dm = {};
     $scope.eMedia = {};
@@ -1736,7 +1776,6 @@ var p = $timeout(function(){
         width = 960 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
     var parseDate = d3.time.format("%m/%d/%Y").parse;
-    var formatCurrency = function(d) { return "$" + d3.format("0,000")(d) };
 
     function svgTotalSales(){
 
@@ -1912,7 +1951,9 @@ var p = $timeout(function(){
 
     svgMultipleLines("#actualForecast", "data/actual_forecast.csv", "实际预测对比", "");
 
-    function svgTotalSpending(){
+    function svgTotalSpending(divId, dataFile, dataResult, title, small){
+        if (small)
+            width = width - 400;
         var x = d3.scale.ordinal()
             .rangeRoundBands([0, width], 0.3);
 
@@ -1929,13 +1970,13 @@ var p = $timeout(function(){
             .ticks(10)
             .tickFormat(formatCurrency);
 
-        var svg = d3.select("#totalSpending").append("svg")
+        var svg = d3.select(divId).append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.csv("data/media_spending.csv", type, function(error, data) {
+        function bindData(data){
             x.domain(data.map(function(d) { return d.media; }));
             y.domain([0, d3.max(data, function(d) { return d.spending; })]);
 
@@ -1968,16 +2009,22 @@ var p = $timeout(function(){
                 .attr("text-anchor", "middle")
                 .style("font-size", "16px")
                 .style("text-decoration", "underline")
-                .text("总计媒体开销");
+                .text(title);
+        }
 
-        });
+        if (dataResult)
+            bindData(dataResult);
+        else
+            d3.csv(dataFile, type, function(error, data) {bindData(data);});
 
         function type(d) {
             d.spending = +d.spending;
             return d;
         }
     }
-    svgTotalSpending();
+    svgTotalSpending('#totalSpending', "data/media_spending.csv", null, "总计媒体开销", false);
+
+    svgTotalSpending('#divProjectSummary', null, [{'media': '开销', 'spending': $scope.totalSpend},{'media': '销售', 'spending': $scope.totalSales}], "开销与销售", true);
 
     function svgArea(){
         var x = d3.time.scale()

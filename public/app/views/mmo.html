@@ -47,6 +47,63 @@
             <div class="panel-body">
                 <tabset>
                     <tab heading="{{ 'mmo.PROJECTSUMMARY' | translate}}">
+                        <div class="row">
+                            <span>
+                                <strong>投资回报率（ROI）：</strong>
+                                投资回报率是指净利润相对于成本的比值。投资回报率通常被认为是对广告客户最为重要的指标，因为它依据的是您的具体广告目标，而且能够体现您的广告举措对您的业务产生的真实影响。此指标的确切计算方法取决于您的广告系列的目标。
+                            </span>
+                            <br/><br/><br/>
+                            <span>
+                                <strong>投资回报率的重要意义：</strong>
+                                通过计算投资回报率，您可以了解 营销 广告投资给您带来的市场收益。您可以使用投资回报率决定如何分配预算。例如，如果您发现某个广告系列的投资回报率比其他广告系列都要高，您就可以将更多预算投资在这个效果理想的广告系列上，减少在效果不佳的广告系列上的支出。您也可以使用此信息来优化效果不太理想的广告系列。
+                            </span>
+                            <br/><br/><br/>
+                            <span>
+                                <strong>客户：</strong>
+                                某国际知名汽车生产商</span>
+                            <br/>
+                            <ul>
+                                <li>项目：针对某重点销售区域投资销售数据进行投资分析</li>
+                                <li>投入：每年$7.5(百万)区域营销广告投资  (渠道包括直邮，广播，email，报纸，无线电视，有线电视，数字媒体，网站banner)</li>
+                                <li>产出：2013年某销售区域总销售额1.5亿美元 </li>
+                            </ul>
+                            <br/>
+                            <strong>项目目标：</strong>
+                            <ul>
+                                <li>通过广告渠道投资回报率分析报告深入了解历史投资效果。</li>
+                                <li>量化渠道投资，季节性，节假日，外部经济甚至竞争对手的营销投资等因素对销售额的影响。</li>
+                                <li>优化广告营销渠道投资配比，确保每种渠道广告投资回报率最大化，并可以帮助制定未来广告投资预算。</li>
+                                <li>降低低投资回报率的渠道投入，增加高投资回报率的渠道投入，并针对季节性因素来调整营销广告投入的配比，从而增加销售，降低营销投入，优化营销市场策略。</li>
+                                <li>在保持总广告投资不变的情况下，优化渠道投资配比来提高销售。</li>
+                            </ul>
+                            <br/><br/>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>广告渠道</th>
+                                                <th>渠道投资</th>
+                                                <th>总销售额</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+                                        <tr data-ng-repeat="channel in channels">
+                                            <td >{{channel.name}}</td>
+                                            <td>{{formatCurrency(channel.value)}}</td>
+                                            <td ng-if="$first" rowspan={{channels.length}}>{{formatCurrency(totalSales)}}</td>
+                                        </tr >
+                                        <tr>
+                                            <td><strong>总计</strong></td>
+                                            <td><strong>{{formatCurrency(totalSpend)}}</strong></td>
+                                            <td><strong>{{formatCurrency(totalSales)}}</strong></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div class="col-sm-6" id="divProjectSummary"></div>
+                        </div>
 
                     </tab>
                     <tab heading="{{ 'mmo.DATASUMMARY' | translate}}">
