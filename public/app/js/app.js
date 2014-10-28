@@ -1952,8 +1952,9 @@ var p = $timeout(function(){
     svgMultipleLines("#actualForecast", "data/actual_forecast.csv", "实际预测对比", "");
 
     function svgTotalSpending(divId, dataFile, dataResult, title, small){
+        var width = 960 - margin.left - margin.right;
         if (small)
-            width = width - 400;
+            width = width/2;
         var x = d3.scale.ordinal()
             .rangeRoundBands([0, width], 0.3);
 
