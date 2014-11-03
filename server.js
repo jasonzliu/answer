@@ -2,21 +2,25 @@ var http = require('http');
 var express = require('express');
 var path = require('path');
 var rio = require('rio');
+var bodyParser = require('body-parser');
 
 console.log('Server running at http://127.0.0.1:7777/');
 var app = express();
-
+app.use(bodyParser.json());
 console.log("\n-------------the answer-------------\n");
 
 app.use(express.static(path.join(__dirname, 'public')));
 // register api routes
 app.get('*', function(req, res){res.end();});
 
+//post http://localhost:7777/opt
+//Content-Type: application/json
+//{"total":50000}
 app.post('/opt', function(req, res){
     rio.sourceAndEval("R/opt_total.R", {
         entryPoint: "getOptimal",
         data: {
-            total: [500000]
+            total: [req.body.total]
         },
         callback: function(err, data){
             if (!err) {
