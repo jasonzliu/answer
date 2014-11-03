@@ -19,7 +19,7 @@ http.createServer(app).listen(7777, '100.79.164.6');
 //rio.enablePlaybackMode(true, {fileName: 'dump.bin'});
 
 //rio.evaluate("pi / 2 * 2");
-rio.sourceAndEval("r/opt_total.r", {
+rio.sourceAndEval("R/opt_total.R", {
     entryPoint: "getOptimal",
     data: [500000],
     callback: function(err, data){
