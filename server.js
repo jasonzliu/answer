@@ -30,6 +30,7 @@ rio.sourceAndEval("r/opt_total.r", {
             console.log("Optimal total is " + data.total_sales);
         } else {
             console.log("Optimization failed");
+            console.log(err);
         }
     }
 });
