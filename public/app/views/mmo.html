@@ -332,6 +332,14 @@
                         </div>
                     </tab>
                     <tab heading="{{ 'mmo.INVESTMENTOPTIMIZATION' | translate}}">
+                    <div class="row">
+                        <div class="panel panel-default col-md-12">
+                        <div class="panel-body">
+                            <span> 总计: $</span>
+                            <input type="number" ng-model="optTotal" step="1" min="1" max="9999" />K
+                            <button class="btn-primary" ng-click="optimize()">自动优化</button>
+                        </div>
+                    </div>
                         <div class="row">
                             <div class="panel panel-default col-md-6">
                                 <div class="panel-heading">大众媒体
@@ -621,7 +629,6 @@
                                         <br/><br/>
                                         <button class="btn-primary" ng-click="apply()">应    用</button>
                                         <br/><br/>
-                                        <button class="btn-primary" ng-click="optimize()">自动优化</button>
                                     </div>
                                 </div>
                             </div>
