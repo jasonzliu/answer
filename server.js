@@ -21,7 +21,9 @@ http.createServer(app).listen(7777, '100.79.164.6');
 //rio.evaluate("pi / 2 * 2");
 rio.sourceAndEval("R/opt_total.R", {
     entryPoint: "getOptimal",
-    data: [500000],
+    data: {
+        total: [500000]
+    },
     callback: function(err, data){
         if (!err) {
             data = JSON.parse(data);
