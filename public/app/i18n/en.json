@@ -30,6 +30,7 @@
         "MODALSUMMARY":"Modal Summary",
         "SALESDECOMPOSITION":"Sales Decomposition",
         "ROIANALYSIS":"ROI Analysis",
+        "INVESTMENTSIMULATION":"Investment Simulation",
         "INVESTMENTOPTIMIZATION":"Investment Optimization",
         "INVESTMENTRETURNFORECAST":"Investment Return Forecast"
     },
