@@ -1696,7 +1696,7 @@ App.controller('ModalGmapController', ['$scope', '$modal', 'gmap', function ($sc
 
 App.controller('mmoController', function($scope, $timeout, $http, $q){
     var formatCurrency = function(d) { return "$" + d3.format("0,000")(d) };
-    $scope.optTotal = 1000;
+    $scope.opt = {'total': 1};
     $scope.formatCurrency = formatCurrency;
     $scope.channels  = [
         {
@@ -2428,7 +2428,7 @@ var p = $timeout(function(){
         console.log('apply!!!');
     };
     $scope.optimize = function(){
-        $http.post('/opt', { "total": $scope.optTotal*1000 })
+        $http.post('/opt', { "total": $scope.opt.total*1000 })
             .then(function(res){
                 console.log(JSON.stringify(res));
                 alert(JSON.stringify(res.data));

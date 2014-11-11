@@ -651,7 +651,7 @@
         <div class="panel panel-default col-md-12">
             <div class="panel-body">
                 <span> 预算: $</span>
-                <input type="number" ng-model="optTotal" step="1" min="1" max="9999"/>K
+                <input type="number" ng-model="opt.total" step="1" min="1" max="9999" />K{{optTotal}}
                 <button class="btn-primary" ng-click="optimize()">自动优化</button>
             </div>
         </div>
